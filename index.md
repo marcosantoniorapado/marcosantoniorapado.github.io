@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-
 # Contatos
 
 [Página do Notion](https://marcosatendimento.notion.site/Marcos-Antonio-Rapado-1cc582b02eef4713a0e6e98fc1148289?pvs=4)
