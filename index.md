@@ -4,7 +4,7 @@ layout: default
 
 Especialista em Soluções de Tecnologia
 
-[Link to another page](./another-page.html).
+[Página no Notion](https://marcosatendimento.notion.site/Marcos-Antonio-Rapado-1cc582b02eef4713a0e6e98fc1148289?pvs=4).
 
 There should be whitespace between paragraphs.
 
