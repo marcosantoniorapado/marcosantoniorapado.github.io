@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: default-home
 ---
 ## Projetos de IA
 
