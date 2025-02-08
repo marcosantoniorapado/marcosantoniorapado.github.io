@@ -1,4 +1,4 @@
-# Meu Portfólio - Marcos Antônio Rapado
+# Meu Portfólio - Marcos Antonio Rapado
 
 Este é meu site pessoal, criado para apresentar meus serviços, projetos e formas de contato.
 
