@@ -43,18 +43,16 @@ Com anos de experiência em manutenção de computadores, notebooks e redes, ofe
 • Compromisso com a satisfação do cliente.
 
 # Contatos
-
-> [Página do Notion](https://marcosatendimento.notion.site/Marcos-Antonio-Rapado-1cc582b02eef4713a0e6e98fc1148289?pvs=4)
 >
 > 📞 Telefone: 18 997738569 [**WhatsApp**](https://wa.me/5518997738569)
 >
 > 📧 E-mail: marcosantoniorapado@gmail.com
 >
-> 🌐 Facebook: [**Perfil**](https://www.facebook.com/marcos.rapado)
+> 🌐 [Facebook:](https://www.facebook.com/marcos.rapado)
 >
-> 📌 LinkedIn: [**Perfil**](https://www.linkedin.com/in/marcos-rapado/)
+> 📌 [LinkedIn:](https://www.linkedin.com/in/marcos-rapado/)
 >
-> 📌 Notion: [**Perfil**]([https://www.linkedin.com/in/marcos-rapado/](https://marcosatendimento.notion.site/Marcos-Antonio-Rapado-1cc582b02eef4713a0e6e98fc1148289?pvs=4))
+> 🌐 [Página do Notion:]([https://www.linkedin.com/in/marcos-rapado/](https://marcosatendimento.notion.site/Marcos-Antonio-Rapado-1cc582b02eef4713a0e6e98fc1148289?pvs=4))
 >
 > 🗺️ Mapa: [NG Master Informatica](https://www.google.com/maps/dir//R.+Jos%C3%A9+de+Alencar,+584+-+Centro,+Pirapozinho+-+SP,+19200-000/@-22.2755806,-51.5802727,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x94938de9c41156c3:0x33532da6f8c46927!2m2!1d-51.4979854!2d-22.2756743?entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D)
 >
