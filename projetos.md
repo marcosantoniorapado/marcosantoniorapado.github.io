@@ -5,7 +5,7 @@ layout: default-home
 
 A Inteligência Artificial (IA) está revolucionando o mundo e proporcionando novas oportunidades em diversas áreas. Aqui, você encontra alguns projetos desenvolvidos para explorar e aplicar IA em soluções inovadoras.
 
-# 🔗 Experimente agora!
+## 🔗 Experimente agora!
 
 
 ## Amiga Brasil 🇧🇷
