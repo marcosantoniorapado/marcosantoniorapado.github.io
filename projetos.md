@@ -11,7 +11,8 @@ A Inteligência Artificial (IA) está revolucionando o mundo e proporcionando no
 ## Amiga Brasil 🇧🇷
 
 
-🧠 [Amiga Brasil 🇧🇷](https://chatgpt.com/g/g-dVmjE5mpr-amiga-brasil)
+🧠 <a href="https://chatgpt.com/g/g-dVmjE5mpr-amiga-brasil" target="_blank">Amiga Brasil 🇧🇷</a>
+
 
 💭 Sua amiga para todas as horas "atendimento ao usuário/cliente, assistência pessoal, educação, finanças, saúde e bem-estar, trabalho e carreira, turismo brasileiro, acesso à internet, criação e edição de documentos"
 
