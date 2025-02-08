@@ -2,7 +2,7 @@
 layout: default
 ---
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+Especialista em Soluções de Tecnologia
 
 [Link to another page](./another-page.html).
 
