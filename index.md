@@ -2,9 +2,9 @@
 layout: default
 ---
 
-#Especialista em Soluções de Tecnologia
+# Especialista em Soluções de Tecnologia
 
-[Página do Notion](https://marcosatendimento.notion.site/Marcos-Antonio-Rapado-1cc582b02eef4713a0e6e98fc1148289?pvs=4).
+[Página do Notion](https://marcosatendimento.notion.site/Marcos-Antonio-Rapado-1cc582b02eef4713a0e6e98fc1148289?pvs=4)
 
 ## Manutenção de Equipamentos
 
@@ -18,6 +18,34 @@ Com anos de experiência em manutenção de computadores, notebooks e redes, ofe
 • Formatação e reinstalação de sistemas operacionais
 
 • Soluções de desempenho e atualização de componentes.
+
+## Instalação e Configuração de Softwares
+
+• Instalação e configuração do pacote Office e outras ferramentas
+
+• Orientação para uso seguro e eficiente de softwares diversos.
+
+## Configuração e Instalação de Redes
+
+• Montagem e configuração de redes locais e Wi-Fi
+
+• Instalação e compartilhamento de impressoras e dispositivos
+
+• Soluções para melhorar a segurança e estabilidade da rede.
+
+## Consultoria em Inteligência Artificial
+
+• Assessoria para implementação de soluções de IA para empresas ou usuários individuais.
+
+• Suporte para ferramentas de inteligência artificial e automação de processos.
+
+## Diferenciais:
+
+• Atendimento ágil e personalizado
+
+• Suporte remoto
+
+• Compromisso com a satisfação do cliente.
 
 ## Header 2
 
