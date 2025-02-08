@@ -2,16 +2,16 @@
 layout: default
 ---
 
-Especialista em Soluções de Tecnologia
+#Especialista em Soluções de Tecnologia
 
 [Página do Notion](https://marcosatendimento.notion.site/Marcos-Antonio-Rapado-1cc582b02eef4713a0e6e98fc1148289?pvs=4).
 
-Manutenção de Equipamentos
+## Manutenção de Equipamentos
 
 Com anos de experiência em manutenção de computadores, notebooks e redes, ofereço soluções completas para garantir que seus equipamentos funcionem com a máxima eficiência. Minha missão é simplificar a tecnologia para que você possa focar no que realmente importa.
 
 
-# Manutenção de Computadores e Notebooks
+## Manutenção de Computadores e Notebooks
 
 • Diagnóstico e reparo de hardware e software.
 
