@@ -19,7 +19,7 @@ O site foi desenvolvido utilizando **GitHub Pages** e o tema **Midnight**, dispo
 Agradecimento à comunidade open-source pelo suporte e pela disponibilização de recursos para facilitar o desenvolvimento deste projeto.
 
 ## 📞 Contato
-- 📧 **E-mail:** marcos.rapado@email.com
+- 📧 **E-mail:** marcosantoniorapado@gmail.com
 - 🔗 **LinkedIn:** [Meu Perfil](https://www.linkedin.com/in/marcos-rapado/)
 - 📘 **Facebook:** [Meu Perfil](https://www.facebook.com/marcos.rapado)
 - 📱 **WhatsApp:** [(18) 99773-8569](https://wa.me/18997738569)
