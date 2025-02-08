@@ -1,27 +1,28 @@
 # Meu Portfólio - Marcos Antonio Rapado
 
-Este é meu site pessoal, criado para apresentar meus serviços, projetos e formas de contato.
+Este é meu site pessoal, criado para apresentar meus serviços, projetos e formas de contato. Desenvolvido utilizando GitHub Pages e baseado no tema **Midnight**, esta página serve como um espaço para divulgar minhas habilidades e compartilhar recursos úteis.
 
-## Sobre o Site
-Este site foi desenvolvido usando GitHub Pages e o tema **Midnight**, que fornece um layout limpo e profissional.  
-A página inclui informações sobre minha atuação, serviços prestados e formas de contato.
+## 📌 Sobre o Site
+Este site contém informações sobre minha atuação profissional, serviços prestados e links úteis para contato. Foi desenvolvido utilizando um modelo open-source para facilitar a experiência do usuário e proporcionar um layout moderno e responsivo.
 
-## Serviços e Projetos
-- Manutenção de computadores e notebooks 🖥️
-- Consultoria em tecnologia e inteligência artificial 🤖
-- Desenvolvimento de automações e scripts ⚙️
-- Redes e conectividade 🌐
+## 🔧 Serviços e Projetos
+- 🖥️ **Manutenção de Computadores e Notebooks** - Diagnóstico, formatação, upgrade de hardware e software.
+- 🔧 **Consultoria em Tecnologia e Inteligência Artificial** - Orientação para implementação e otimização de soluções tecnológicas.
+- ⚙️ **Desenvolvimento de Automação e Scripts** - Criação de soluções automatizadas para otimizar processos.
+- 🌐 **Redes e Conectividade** - Configuração e suporte para redes locais e Wi-Fi.
+- 📂 **Downloads de Ferramentas Úteis** - Disponibilização de softwares e scripts para facilitar o trabalho dos usuários.
 
-## Como foi Criado?
-O site foi baseado no tema **Midnight**, disponível em:
-[Midnight Theme](http://pages-themes.github.io/midnight).  
-Agradecimento à comunidade open-source por disponibilizar este tema.
+## 🚀 Como foi Criado?
+O site foi desenvolvido utilizando **GitHub Pages** e o tema **Midnight**, disponível em:  
+[Midnight Theme](http://pages-themes.github.io/midnight).
 
-## Contato
-📧 E-mail: [Seu E-mail]  
-🔗 LinkedIn: [Seu LinkedIn]  
-📱 WhatsApp: [Seu Número]  
+Agradecimento à comunidade open-source pelo suporte e pela disponibilização de recursos para facilitar o desenvolvimento deste projeto.
+
+## 📞 Contato
+- 📧 **E-mail:** marcos.rapado@email.com
+- 🔗 **LinkedIn:** [Meu Perfil](https://www.linkedin.com/in/marcos-rapado/)
+- 📘 **Facebook:** [Meu Perfil](https://www.facebook.com/marcos.rapado)
+- 📱 **WhatsApp:** [(18) 99773-8569](https://wa.me/18997738569)
 
 ---
 
-Este README.md pode ser atualizado conforme novas mudanças forem feitas no site!
