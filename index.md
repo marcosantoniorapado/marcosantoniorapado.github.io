@@ -14,11 +14,13 @@ Com anos de experiência em manutenção de computadores, notebooks e redes, ofe
 
 • Soluções de desempenho e atualização de componentes.
 
+
 ## Instalação e Configuração de Softwares
 
 • Instalação e configuração do pacote Office e outras ferramentas
 
 • Orientação para uso seguro e eficiente de softwares diversos.
+
 
 ## Configuração e Instalação de Redes
 
@@ -28,11 +30,13 @@ Com anos de experiência em manutenção de computadores, notebooks e redes, ofe
 
 • Soluções para melhorar a segurança e estabilidade da rede.
 
+
 ## Consultoria em Inteligência Artificial
 
 • Assessoria para implementação de soluções de IA para empresas ou usuários individuais.
 
 • Suporte para ferramentas de inteligência artificial e automação de processos.
+
 
 ## Diferenciais:
 
@@ -41,6 +45,7 @@ Com anos de experiência em manutenção de computadores, notebooks e redes, ofe
 • Suporte remoto
 
 • Compromisso com a satisfação do cliente.
+
 
 # Contatos
 
