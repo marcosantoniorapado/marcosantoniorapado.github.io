@@ -6,6 +6,7 @@ layout: default
 Com anos de experiência em manutenção de computadores, notebooks e redes, ofereço soluções completas para garantir que seus equipamentos funcionem com a máxima eficiência. Minha missão é simplificar a tecnologia para que você possa focar no que realmente importa.
 
 
+
 ## Manutenção de Computadores e Notebooks
 
 • Diagnóstico e reparo de hardware e software.
@@ -15,11 +16,13 @@ Com anos de experiência em manutenção de computadores, notebooks e redes, ofe
 • Soluções de desempenho e atualização de componentes.
 
 
+
 ## Instalação e Configuração de Softwares
 
 • Instalação e configuração do pacote Office e outras ferramentas
 
 • Orientação para uso seguro e eficiente de softwares diversos.
+
 
 
 ## Configuração e Instalação de Redes
@@ -31,13 +34,16 @@ Com anos de experiência em manutenção de computadores, notebooks e redes, ofe
 • Soluções para melhorar a segurança e estabilidade da rede.
 
 
+
 ## Consultoria em Inteligência Artificial
 
-> [Projetos de IA](https://marcosantoniorapado.github.io/projetos.html)
+
+[**Projetos de IA**](https://marcosantoniorapado.github.io/projetos.html)
 
 • Assessoria para implementação de soluções de IA para empresas ou usuários individuais.
 
 • Suporte para ferramentas de inteligência artificial e automação de processos.
+
 
 
 ## Diferenciais:
@@ -47,6 +53,7 @@ Com anos de experiência em manutenção de computadores, notebooks e redes, ofe
 • Suporte remoto
 
 • Compromisso com a satisfação do cliente.
+
 
 
 # Contatos
