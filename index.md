@@ -65,11 +65,5 @@ Com anos de experiência em manutenção de computadores, notebooks e redes, ofe
 > 📍 Localização: Rua José de Alencar, 584  centro Pirapozinho SP.
 
 ```
-2025 <script> 
-    window.chtlConfig = { chatbotId: "8198551521" }; 
-</script>
-<script async data-id="8198551521" id="chatling-embed-script" type="text/javascript" 
-        src="https://chatling.ai/js/embed.js">
-</script>
-
+2025 
 ```
