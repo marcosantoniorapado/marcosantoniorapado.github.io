@@ -24,5 +24,5 @@ A Inteligência Artificial (IA) está revolucionando o mundo e proporcionando no
 
 
 ```
-2025
+© 2025 Marcos Antonio Rapado - Todos os direitos reservados
 ```
