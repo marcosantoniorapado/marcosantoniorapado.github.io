@@ -65,5 +65,5 @@ Com anos de experiência em manutenção de computadores, notebooks e redes, ofe
 > 📍 Localização: Rua José de Alencar, 584  centro Pirapozinho SP.
 
 ```
-© 2025 Marcos Antonio Rapado - Todos os direitos reservados
+© 2025 Marcos Antonio Rapado - Todos os direitos reservados                   [ADM]([https://app.chatling.ai/])
 ```
