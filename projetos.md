@@ -8,6 +8,10 @@ A Inteligência Artificial (IA) está revolucionando o mundo e proporcionando no
 ### 🔗 Experimente agora!
 
 
+<img src="imagens/amiga.webp" alt="Amiga Brasil 🇧🇷" width="400">
+
+
+
 ## Amiga Brasil 🇧🇷
 
 
