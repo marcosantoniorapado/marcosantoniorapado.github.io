@@ -3,7 +3,9 @@ layout: default-home
 ---
 ## Projetos de IA
 
+
 A Inteligência Artificial (IA) está revolucionando o mundo e proporcionando novas oportunidades em diversas áreas. Aqui, você encontra alguns projetos desenvolvidos para explorar e aplicar IA em soluções inovadoras.
+
 
 ### 🔗 Experimente agora!
 
@@ -13,6 +15,7 @@ A Inteligência Artificial (IA) está revolucionando o mundo e proporcionando no
 
 
 ## Amiga Brasil 🇧🇷
+
 
 
 🧠 <a href="https://chatgpt.com/g/g-dVmjE5mpr-amiga-brasil" target="_blank">Link para Amiga Brasil 🇧🇷</a>
