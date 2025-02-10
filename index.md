@@ -1,8 +1,9 @@
 ---
 layout: default
 ---
+```
 ## Manutenção de Equipamentos
-
+```
 Com anos de experiência em manutenção de computadores, notebooks e redes, ofereço soluções completas para garantir que seus equipamentos funcionem com a máxima eficiência. Minha missão é simplificar a tecnologia para que você possa focar no que realmente importa.
 
 
