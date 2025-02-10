@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://marcosantoniorapado.github.io/sitemap.xml
