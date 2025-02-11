@@ -80,3 +80,5 @@ Com anos de experiência em manutenção de computadores, notebooks e redes, ofe
 ```
 © 2025 Marcos Antonio Rapado - Todos os direitos reservados                   
 ```
+<meta name="keywords" content="Marcos Antonio, inteligência artificial, programação, automação, inovação, desenvolvimento, GitHub Pages, Home Assistant, Proxmox, SEO, sustentabilidade">
+
