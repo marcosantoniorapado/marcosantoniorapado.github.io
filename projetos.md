@@ -40,7 +40,9 @@ A Inteligência Artificial (IA) está revolucionando o mundo e proporcionando no
 >
 > 🗺️ Mapa: [NG Master Informatica](https://www.google.com/maps/dir//R.+Jos%C3%A9+de+Alencar,+584+-+Centro,+Pirapozinho+-+SP,+19200-000/@-22.2755806,-51.5802727,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x94938de9c41156c3:0x33532da6f8c46927!2m2!1d-51.4979854!2d-22.2756743?entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D)
 >
-> 📍 Localização: Rua José de Alencar, 584  centro Pirapozinho SP.
+> 📞 Telefone: 18 32694437
+>
+>📍 Localização: Rua José de Alencar, 584  centro Pirapozinho SP.
 
 ```
 © 2025 Marcos Antonio Rapado - Todos os direitos reservados                   
