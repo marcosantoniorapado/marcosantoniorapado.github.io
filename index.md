@@ -39,6 +39,7 @@ Com anos de experiência em manutenção de computadores, notebooks e redes, ofe
 ## Consultoria em Inteligência Artificial
 
 
+
 [**Projetos de IA**](https://marcosantoniorapado.github.io/projetos.html)
 
 • Assessoria para implementação de soluções de IA para empresas ou usuários individuais.
