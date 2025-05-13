@@ -13,12 +13,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     {% include head-custom.html %}
   </head>
+  <script> 
+    window.chtlConfig = { chatbotId: "8198551521" }; 
   </script>
   <script async data-id="8198551521" id="chatling-embed-script" type="text/javascript" 
         src="https://chatling.ai/js/embed.js">
   </script>
 
+      </div>
+  </section>
+</div>
+
 <!-- Botão WhatsApp com menu (lado esquerdo) -->
+
+<style>
+  #whatsapp-button {
+    background-color: #25D366; /* Verde WhatsApp */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    cursor: pointer;
+  }
+
+  #whatsapp-button img {
+    width: 36px;
+    height: 36px;
+  }
+</style>
 
 <div id="whatsapp-container">
   <div id="whatsapp-button" onclick="toggleWhatsAppBox()">
@@ -32,6 +57,7 @@
   </div>
 </div>
 
+
 <style>
 #whatsapp-container {
   position: fixed;
@@ -43,14 +69,7 @@
   align-items: flex-start;
   font-family: sans-serif;
 }
-#whatsapp-button {
-  background-color: white;
-  padding: 10px;
-  border-radius: 50%;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
+
 #whatsapp-button:hover {
   transform: scale(1.1);
 }
@@ -91,12 +110,16 @@ function toggleWhatsAppBox() {
 </script>
 
 <!-- Botão WhatsApp com menu (lado esquerdo) -->
-  
+
+</body>
+</html>
+
+
   <body>
       <div id="header">
         <nav>
           <ul>
-            <li class="fork"><a href="https://marcosantoniorapado.github.io/">Home</a></li>
+            <li class="fork"><a href="/projetos.html">Projetos de IA</a></li>
             <li class="downloads"><a href="/downloads/AnyDesk.exe">ANYDESK</a></li>
             <li class="downloads"><a href="/downloads/OfficeSetup.exe">OFFICE</a></li>
             <li class="downloads"><a href="/downloads/Ninite AnyDesk Chrome Firefox WinRAR Installer.exe">NINITE</a></li>
