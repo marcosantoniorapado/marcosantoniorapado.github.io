@@ -26,6 +26,25 @@
 
 <!-- Botão WhatsApp com menu (lado esquerdo) -->
 
+<style>
+  #whatsapp-button {
+    background-color: #25D366; /* Verde WhatsApp */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    cursor: pointer;
+  }
+
+  #whatsapp-button img {
+    width: 36px;
+    height: 36px;
+  }
+</style>
+
 <div id="whatsapp-container">
   <div id="whatsapp-button" onclick="toggleWhatsAppBox()">
     <img src="https://img.icons8.com/color/36/000000/whatsapp--v1.png" alt="WhatsApp">
@@ -37,6 +56,7 @@
     </a>
   </div>
 </div>
+
 
 <style>
 #whatsapp-container {
