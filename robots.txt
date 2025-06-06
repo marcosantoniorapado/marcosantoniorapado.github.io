@@ -1,3 +1,7 @@
+# Arquivo robots.txt do site de Marcos Antonio Rapado
+# Permite que todos os mecanismos de busca indexem o conteúdo
 User-agent: *
 Allow: /
+
+# Sitemap para auxiliar na descoberta das páginas
 Sitemap: https://marcosantoniorapado.github.io/sitemap.xml
