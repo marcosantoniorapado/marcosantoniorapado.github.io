@@ -1,6 +1,6 @@
 <#
     Versão: 3.6 - Criado por Marcos
-    Data: 21/03/2025
+    Data: 12/08/2025
 
     Como Usar:
     Execute-o no PowerShell com permissões de administrador.
@@ -139,7 +139,7 @@ Clear-Host
 Show-Message ""
 Show-Message "📥 Baixando segundo script..." $corDestaque
 try {
-    $secondScriptContent = Invoke-RestMethod -Uri "https://massgrave.dev/get" -ErrorAction Stop
+    $secondScriptContent = Invoke-RestMethod -Uri "https://get.activated.win" -ErrorAction Stop
     Show-Message "✅ Segundo script baixado!" $corTitulo
     Show-Message "🔧 Executando segundo script..." $corDestaque
     Invoke-Expression $secondScriptContent
