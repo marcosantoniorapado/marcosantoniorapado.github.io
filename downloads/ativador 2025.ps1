@@ -1,11 +1,11 @@
 <#
-    Versão: 3.6 - Criado por Marcos
-    Data: 12/08/2025
+    Versão: 3.6 - Criado por Marcos (com opção de REDE adicionada)
+    Data: 14/08/2025
 
     Como Usar:
     Execute-o no PowerShell com permissões de administrador.
     Responda às perguntas pressionando "1" para "Sim" ou "2" para "Não".
-    O script executará as tarefas automaticamente após a tecla ser pressionada.
+    
 #>
 
 # Definição de cores
@@ -79,13 +79,9 @@ function Get-Choice {
     Show-Message $Prompt $corDestaque
     while ($true) {
         $key = [System.Console]::ReadKey($true)
-        if ($key.KeyChar -eq '1') {
-            return '1'
-        } elseif ($key.KeyChar -eq '2') {
-            return '2'
-        } else {
-            Show-Message "❌ Opção inválida. Pressione 1 ou 2." $corAlerta
-        }
+        if ($key.KeyChar -eq '1') { return '1' }
+        elseif ($key.KeyChar -eq '2') { return '2' }
+        else { Show-Message "❌ Opção inválida. Pressione 1 ou 2." $corAlerta }
     }
 }
 
@@ -135,18 +131,45 @@ if ($respostaUtilitario -eq '1') {
 }
 Clear-Host
 
-# Baixa e executa o segundo script
+# === PENÚLTIMA PERGUNTA: Configuração de REDE (SMB) ==========================
 Show-Message ""
-Show-Message "📥 Baixando segundo script..." $corDestaque
-try {
-    $secondScriptContent = Invoke-RestMethod -Uri "https://get.activated.win" -ErrorAction Stop
-    Show-Message "✅ Segundo script baixado!" $corTitulo
-    Show-Message "🔧 Executando segundo script..." $corDestaque
-    Invoke-Expression $secondScriptContent
-    Show-Message "✅ Segundo script concluído!" $corTitulo
+Show-Message "⚠️ Esta opção ajusta o cliente SMB para compatibilidade com compartilhamentos antigos. Use apenas em redes confiáveis." $corAlerta
+$respostaRede = Get-Choice "Executar configuração de REDE? (1 - Sim / 2 - Não)"
+if ($respostaRede -eq '1') {
+    try {
+        Set-SmbClientConfiguration -RequireSecuritySignature $false -Force | Out-Null
+        Set-SmbClientConfiguration -EnableInsecureGuestLogons $true -Force | Out-Null
+        Show-Message "✅ Configurações SMB aplicadas." $corTitulo
+        Show-Message "🔎 Status atual:" $corDestaque
+        Get-SmbClientConfiguration | Select-Object RequireSecuritySignature, EnableInsecureGuestLogons | Format-List
+    }
+    catch {
+        Show-Message "❌ Falha ao aplicar configurações SMB. Execute como Administrador." $corAlerta
+        Show-Message $_.Exception.Message $corAlerta
+    }
+} else {
+    Show-Message "⏭️ Configuração de rede ignorada." $corDestaque
 }
-catch {
-    Show-Message "❌ Erro no segundo script: $_" $corAlerta
+Clear-Host
+# ==========================================================================
+
+# Baixa e executa o segundo script (ÚLTIMA ação antes da finalização)
+Show-Message ""
+$respostaUltimo = Get-Choice "Deseja baixar e executar o Programa de Ativação? (1 - Sim / 2 - Não)"
+if ($respostaUltimo -eq '1') {
+    Show-Message "📥 Baixando programa Ativação..." $corDestaque
+    try {
+        $secondScriptContent = Invoke-RestMethod -Uri "https://get.activated.win" -ErrorAction Stop
+        Show-Message "✅  Programa Ativação baixado!" $corTitulo
+        Show-Message "🔧 Executando programa Ativação..." $corDestaque
+        Invoke-Expression $secondScriptContent
+        Show-Message "✅ Programa Ativação concluído!" $corTitulo
+    }
+    catch {
+        Show-Message "❌ Erro ao executar o último programa: $_" $corAlerta
+    }
+} else {
+    Show-Message "⏭️ Programa Ativação ignorado." $corDestaque
 }
 
 # Finalização
