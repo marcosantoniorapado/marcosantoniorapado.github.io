@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>https://marcosantoniorapado.github.io/</loc>
-        <lastmod>2025-02-11</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-    </url>
-    <url>
-        <loc>https://marcosantoniorapado.github.io/projetos.html</loc>
-        <lastmod>2025-02-11</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
+  <url>
+    <loc>https://marcosantoniorapado.github.io/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://marcosantoniorapado.github.io/ferramentas/gravador.html</loc>
+  </url>
+  <url>
+    <loc>https://marcosantoniorapado.github.io/ferramentas/recibo.html</loc>
+  </url>
+  <url>
+    <loc>https://marcosantoniorapado.github.io/projetos/base-de-conhecimento-ia.md</loc>
+  </url>
+  <url>
+    <loc>https://marcosantoniorapado.github.io/downloads/AnyDesk.exe</loc>
+  </url>
+  <url>
+    <loc>https://marcosantoniorapado.github.io/downloads/OfficeSetup.exe</loc>
+  </url>
+  <!-- Adicione mais URLs conforme necessário -->
 </urlset>

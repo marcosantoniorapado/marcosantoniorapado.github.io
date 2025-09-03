@@ -1,0 +1,554 @@
+<!-- 
+  lang="pt-BR" informa ao navegador que o idioma principal da página é Português do Brasil. 
+  Isso é bom para acessibilidade e SEO (otimização para buscadores).
+-->
+<html lang="pt-BR">
+<head>
+    <!-- Define o conjunto de caracteres como UTF-8, que suporta a maioria dos caracteres, incluindo acentos (ç, á, etc.). -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <!-- O título que aparece na aba do navegador. -->
+    <title>Soluções em Tecnologia</title>
+    
+    <!-- Meta tag essencial para design responsivo. Faz com que a página se adapte ao tamanho da tela do dispositivo. -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    
+    <!-- Link para o seu arquivo de estilos (CSS). É aqui que a "mágica" do design acontece. -->
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    
+    <!-- 
+      Favicon: o ícone que aparece na aba do navegador. 
+      Atualizado para buscar os ícones da sua nova pasta 'assets/images/'.
+    -->
+    <link href="assets/images/favicon.png" rel="shortcut icon" type="image/x-icon">
+    <link href="assets/images/apple-touch-icon.png" rel="apple-touch-icon">
+    
+    <!-- 
+      Estilos (CSS) escritos diretamente no HTML. 
+      Isso é usado para preparar as animações de texto que serão controladas pelo JavaScript.
+    -->
+    <style>
+        [text-split] {opacity: 0;}
+        html.w-editor [text-split] {opacity: 1;}
+        .word {
+            overflow: hidden;
+            padding-bottom: 0.1em;
+            margin-bottom: -0.1em;
+            transform-origin: bottom;
+        }
+
+        /*
+        * INÍCIO: Ajustes de Tamanho de Texto na Seção Inicial (Hero)
+        *
+        * Esta seção foi adicionada para permitir o ajuste fino do tamanho do texto
+        * do seu nome e subtítulo na parte superior da página.
+        *
+        * Como ajustar:
+        * - Altere o valor de 'font-size' para '.hero-name-text' para diminuir/aumentar seu nome.
+        * - Altere o valor de 'font-size' para '.hero-subtitle-text' para diminuir/aumentar o subtítulo.
+        * - Você pode usar unidades como 'vw' (viewport width) para um tamanho responsivo,
+        *   ou 'px', 'em', 'rem' para tamanhos fixos ou relativos.
+        *
+        * Exemplo:
+        *   font-size: 4vw;   (para um tamanho que se adapta à largura da tela)
+        *   font-size: 48px;  (para um tamanho fixo em pixels)
+        */
+        .hero-name-text {
+            /*
+             * Usamos clamp(min, preferred, max) para garantir que o tamanho da fonte seja responsivo (5vw),
+             * mas que nunca fique menor que 2rem (aprox. 32px) e nunca maior que 4rem (aprox. 64px).
+             * O !important ainda é necessário para sobrescrever as regras do template original.
+             */
+            font-size: clamp(2rem, 6vw, 4.5rem) !important; /* Ajuste estes valores para controlar o tamanho do seu nome */
+        }
+
+        .hero-subtitle-text {
+            /*
+             * Similarmente, para o subtítulo, garantimos que ele não fique menor que 1rem (aprox. 16px)
+             * e não maior que 1.5rem (aprox. 24px).
+             */
+            font-size: clamp(1rem, 1.5vw, 1.5rem) !important; /* Ajuste estes valores para controlar o tamanho do subtítulo */
+        }
+        /* FIM: Ajustes de Tamanho de Texto na Seção Inicial (Hero) */
+
+        /* Estilos para o ícone flutuante do WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            width: 55px;  /* Ajustado para 55px para igualar ao botão do Chat IA */
+            height: 55px; /* Ajustado para 55px para igualar ao botão do Chat IA */
+            bottom: 10px;
+            left: 20px; /* Ajustado para 20px para alinhar simetricamente com o botão da IA. Se precisar de ajuste fino na altura, altere o 'bottom' aqui. */
+            background-color: #424242; /* Cor alterada para cinza escuro para melhor sobreposição */
+            border-radius: 50%;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            z-index: 1000; /* Garante que o ícone fique sobre os outros elementos */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease;
+            text-decoration: none; /* Remove sublinhado do link */
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+        }
+
+        /* INÍCIO: Melhoria do Menu Mobile */
+        /* Animação do ícone de menu para 'X' */
+        .burger-line {
+            /* Adiciona uma transição suave para a animação */
+            transition: transform 0.4s ease, top 0.4s ease, bottom 0.4s ease;
+        }
+        .w-nav-button.w--open .burger-line.top {
+            /* Move a linha de cima para o centro e a rotaciona */
+            transform: rotate(45deg);
+            top: 45%; /* Ajuste fino para centralizar a linha */
+        }
+        .w-nav-button.w--open .burger-line:not(.top) {
+            /* Move a linha de baixo para o centro e a rotaciona */
+            transform: rotate(-45deg);
+            top: 45%; /* Usa 'top' em vez de 'bottom' para sobrepor */
+        }
+        /* FIM: Melhoria do Menu Mobile */
+    </style>
+</head>
+<body>
+    <!-- Ícone Flutuante do WhatsApp -->
+    <a href="https://wa.me/5518997738569" class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Fale conosco pelo WhatsApp">
+        <!-- O fundo foi alterado para cinza escuro e o ícone para a versão branca para melhor contraste. -->
+        <img src="https://img.icons8.com/ios-filled/32/ffffff/whatsapp--v1.png" alt="Ícone do WhatsApp"/>
+    </a>
+    <!-- ================================================== -->
+    <!-- NAVEGAÇÃO (CABEÇALHO)                              -->
+    <!-- ================================================== -->
+    <!-- A tag <nav> representa a barra de navegação no topo da página. -->
+    <div data-animation="default" class="navbar w-nav" data-easing2="ease-in-quart" data-easing="ease-out-quart" data-collapse="medium" role="banner" data-duration="400">
+        <div class="navbar-container">
+            <!-- Seu logo/nome, que também é um link para o topo da página (#home). -->
+            <a href="#home" class="brand w-nav-brand">
+                <h3 class="logo-text">Soluções em Tecnologia</h3>
+            </a>
+            <!-- Menu de navegação com links para as diferentes seções da página. -->
+            <nav role="navigation" class="nav-menu w-nav-menu">
+                <a href="#servicos" class="nav-link w-inline-block"><div>Serviços</div></a>
+                <a href="#projetos" class="nav-link w-inline-block"><div>Projetos</div></a>
+                <a href="#ferramentas" class="nav-link w-inline-block"><div>Ferramentas</div></a>
+                <a href="#downloads" class="nav-link w-inline-block"><div>Downloads</div></a>
+                <a href="#links-rapidos" class="nav-link w-inline-block"><div>Links</div></a>
+                <a href="#contatos" class="nav-link w-inline-block"><div>Contatos</div></a>
+            </nav>
+            <!-- Este é o ícone do menu "hambúrguer" que aparece em telas menores (mobile). -->
+            <div class="burger-wrapper w-nav-button" aria-label="menu" role="button" tabindex="0" aria-controls="w-nav-overlay-0" aria-haspopup="menu" aria-expanded="false">
+                <div class="burger-line top"></div>
+                <div class="burger-line"></div>
+            </div>
+        </div>
+        <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div>
+    </div>
+
+    <!-- Wrapper principal que contém todas as seções da página. -->
+    <div class="scroll-wrapper">
+        <!-- ================================================== -->
+        <!-- SEÇÃO INICIAL (HERO)                               -->
+        <!-- ================================================== -->
+        <div class="section wf-section">
+            <!-- id="home" é a "âncora" para o link do menu "Home". -->
+            <div id="home" class="id-navigator thin"></div>
+            <div class="wrapper">
+                <div class="block hero">
+                    <div class="center-items">
+                        <!-- Título principal com atributos para animação de texto (controlado pelo JavaScript). -->
+                        <!--
+                            INÍCIO: Ajuste de Tamanho do Nome
+                            A classe 'hero-name-text' foi adicionada para permitir o ajuste do tamanho da fonte.
+                            Você pode modificar o 'font-size' na seção <style> no cabeçalho do HTML.
+                        -->
+                        <div letters-slide-up="" text-split="" class="heading-jumbo xlarge hero-name-text">Marcos Antonio Rapado</div>
+                        <!--
+                            INÍCIO: Ajuste de Tamanho do Subtítulo
+                            A classe 'hero-subtitle-text' foi adicionada para permitir o ajuste do tamanho da fonte.
+                        -->
+                        <p words-fade-in="" text-split="" class="paragraph-big hero-subtitle-text">Especialista em Soluções de Tecnologia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================== -->
+        <!-- SEÇÃO DE SERVIÇOS                                  -->
+        <!-- ================================================== -->
+        <div class="section wf-section">
+            <div id="servicos" class="id-navigator"></div>
+            <div class="wrapper">
+                <div class="block">
+                    <div class="center-items">
+                        <div class="heading-jumbo small">Meus Serviços</div>
+                        <p class="paragraph-big">Com anos de experiência em manutenção de computadores, notebooks e redes, ofereço soluções completas para garantir que seus equipamentos funcionem com a máxima eficiência. Minha missão é simplificar a tecnologia para que você possa focar no que realmente importa.</p>
+                    </div>
+                </div>
+                <!-- 
+                    Adicionado 'align-items: flex-start' para garantir que as colunas de serviços
+                    se alinhem pelo topo, corrigindo o desalinhamento visual entre os itens 1 e 4.
+                -->
+                <div class="block flex" style="align-items: flex-start;">
+                    <!-- Coluna da Esquerda: Manutenção e Redes -->
+                    <div class="half-block">
+                        <div class="row flex">
+                            <div class="heading-numbered">
+                                <h2 class="numbering">1</h2>
+                                <h2>Manutenção de Computadores e Notebooks</h2>
+                            </div>
+                            <ul class="paragraph-light" style="list-style-position: inside; padding-left: 20px; margin-top: 10px;">
+                                <li>Diagnóstico e reparo de hardware e software.</li>
+                                <li>Formatação e reinstalação de sistemas operacionais.</li>
+                                <li>Soluções de desempenho e atualização de componentes.</li>
+                            </ul>
+                        </div>
+                        <div class="row flex">
+                            <div class="heading-numbered">
+                                <h2 class="numbering">2</h2>
+                                <h2>Instalação e Configuração de Softwares</h2>
+                            </div>
+                             <ul class="paragraph-light" style="list-style-position: inside; padding-left: 20px; margin-top: 10px;">
+                                <li>Instalação e configuração do pacote Office e outras ferramentas.</li>
+                                <li>Orientação para uso seguro e eficiente de softwares diversos.</li>
+                            </ul>
+                        </div>
+                        <div class="row flex">
+                            <div class="heading-numbered">
+                                <h2 class="numbering">3</h2>
+                                <h2>Configuração e Instalação de Redes</h2>
+                            </div>
+                             <ul class="paragraph-light" style="list-style-position: inside; padding-left: 20px; margin-top: 10px;">
+                                <li>Montagem e configuração de redes locais e Wi-Fi.</li>
+                                <li>Instalação e compartilhamento de impressoras e dispositivos.</li>
+                                <li>Soluções para melhorar a segurança e estabilidade da rede.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Coluna da Direita: IA e Diferenciais -->
+                    <div class="half-block">
+                         <div class="row flex">
+                            <div class="heading-numbered">
+                                <h2 class="numbering">4</h2>
+                                <h2>Consultoria em Inteligência Artificial</h2>
+                            </div>
+                             <ul class="paragraph-light" style="list-style-position: inside; padding-left: 20px; margin-top: 10px;">
+                                <li>Assessoria para implementação de soluções de IA para empresas ou usuários individuais.</li>
+                                <li>Suporte para ferramentas de inteligência artificial e automação de processos.</li>
+                            </ul>
+                        </div>
+                         <div class="row flex">
+                            <div class="heading-numbered">
+                                <h2 class="numbering" style="color: #00c853;">✓</h2>
+                                <h2>Diferenciais</h2>
+                            </div>
+                             <ul class="paragraph-light" style="list-style-position: inside; padding-left: 20px; margin-top: 10px;">
+                                <li>Atendimento ágil e personalizado, com foco nas necessidades reais do usuário.</li>
+                                <li>Suporte remoto disponível em todo o Brasil, permitindo atendimento eficiente e humanizado, onde quer que você esteja.</li>
+                                <li>Compromisso com a satisfação do cliente, prezando pela qualidade, ética e clareza nas orientações.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================== -->
+        <!-- SEÇÃO DE PROJETOS                                  -->
+        <!-- ================================================== -->
+        <div class="section inverse wf-section">
+            <div id="projetos" class="id-navigator"></div>
+            <div class="wrapper">
+                <div class="block">
+                    <div class="center-items">
+                        <div class="heading-jumbo small">Meus Projetos</div>
+                        <p class="paragraph-big">Aqui estão alguns projetos como IA.</p>
+                    </div>
+                </div>
+                <!-- 
+                    Layout dos projetos centralizado.
+                    - display: flex -> Alinha os itens em uma linha.
+                    - justify-content: center -> Centraliza o grupo de projetos na horizontal.
+                    - flex-wrap: wrap -> Permite que os projetos quebrem para a linha de baixo em telas menores.
+                    - gap: 20px -> Adiciona um espaço consistente entre os projetos.
+                -->
+                <div class="row" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px;">
+                    <div class="half-block third inverse">
+                        <!--
+                            PROJETO 1: Amiga Brasil BR
+                            Certifique-se de que a imagem 'amiga.webp' esteja na pasta 'assets/images/'.
+                        -->
+                        <h2 class="numbering inverse">1</h2>
+                        <img src="assets/images/amiga.webp" alt="Logo Amiga Brasil" style="max-width: 50%; height: auto; margin-bottom: 10px; border-radius: 8px;">
+                        <h2>
+                            <a href="https://chatgpt.com/g/g-dVmjE5mpr-amiga-brasil" target="_blank" style="text-decoration: none; color: inherit;">Amiga Brasil 🇧🇷</a>
+                        </h2>
+                        <p class="paragraph-light mobile-left">Amiga Brasil BR é uma assistente pessoal versátil, pronta para ajudar no dia a dia com tarefas práticas, estudos, bem-estar, organização e muito mais. Oferece apoio em temas como atendimento ao usuário, educação, finanças, saúde, turismo, carreira e acesso a ferramentas digitais, com foco em simplicidade, proximidade e utilidade para todas as idades.</p>
+                    </div>
+                    <!--
+                        PROJETO 2: Advogado Virtual BR
+                        A imagem 'advogado.webp' está na pasta 'assets/images/'.
+                        ADICIONE O LINK CORRETO no atributo href="#" abaixo.
+                    -->
+                    <div class="half-block third inverse">
+                        <h2 class="numbering inverse">2</h2>
+                        <img src="assets/images/advogado.webp" alt="Logo Advogado Virtual BR" style="max-width: 50%; height: auto; margin-bottom: 10px; border-radius: 8px;">
+                        <h2>
+                            <a href="#" target="_blank" style="text-decoration: none; color: inherit;">Advogado Virtual BR</a>
+                        </h2>
+                        <p class="paragraph-light mobile-left">Advogado Virtual BR é um assistente jurídico digital desenvolvido para oferecer orientações legais de forma prática, ética e acessível. Ele apoia usuários na compreensão de documentos, esclarece dúvidas sobre processos e contribui para decisões mais conscientes e fundamentadas, com precisão e responsabilidade.</p>
+                    </div>
+                    <!--
+                        PROJETO 3: RH Estratégica BR
+                        A imagem 'rh_estrategica.webp' está na pasta 'assets/images/'.
+                        ADICIONE O LINK CORRETO no atributo href="#" abaixo.
+                    -->
+                    <div class="half-block third inverse">
+                        <h2 class="numbering inverse">3</h2>
+                        <img src="assets/images/rh_estrategica.webp" alt="Logo RH Estratégica BR" style="max-width: 50%; height: auto; margin-bottom: 10px; border-radius: 8px;">
+                        <h2>
+                            <a href="#" target="_blank" style="text-decoration: none; color: inherit;">RH Estratégica BR</a>
+                        </h2>
+                        <p class="paragraph-light mobile-left">RH Estratégica BR é um assistente focado em gestão de pessoas com visão moderna e centrada no desenvolvimento humano. Ele oferece orientações sobre práticas de RH, métricas e KPIs estratégicos, além de apoiar líderes e profissionais na criação de ambientes de trabalho mais engajados, eficientes e alinhados com os objetivos da empresa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================== -->
+        <!-- SEÇÃO DE FERRAMENTAS                               -->
+        <!-- ================================================== -->
+        <div class="section inverse-color-only padding-bottom wf-section">
+            <div id="ferramentas" class="id-navigator"></div>
+            <div class="wrapper flex viewer">
+                <div style="width: 100%;">
+                    <div class="block">
+                        <div class="center-items">
+                            <div class="heading-jumbo small">Ferramentas Úteis</div>
+                            <p class="paragraph-big">Ferramentas simples de uso diário.</p>
+                        </div>
+                    </div>
+                    <!-- 
+                        O layout foi alterado para usar botões, seguindo o mesmo padrão das seções de Downloads e Links Rápidos.
+                        O container usa Flexbox para centralizar os botões e permitir que eles se ajustem em telas menores.
+                    -->
+                    <div class="block less-margin-bottom" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;">
+                        <a href="ferramentas/gravador.html" class="button">Gravador Transcritor</a>
+                        <a href="ferramentas/recibo.html" class="button">Criador de Recibo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================== -->
+        <!-- SEÇÃO DE DOWNLOADS                                 -->
+        <!-- ================================================== -->
+        <div class="section inverse no-padding-bot wf-section">
+            <div id="downloads" class="id-navigator"></div>
+            <div class="wrapper">
+                <div class="block">
+                    <div class="center-items">
+                        <div class="heading-jumbo small">Downloads</div>
+                        <p class="paragraph-big">Baixe scripts, softwares e outros arquivos.</p>
+                    </div>
+                </div>
+                <!-- 
+                    O container dos botões foi alterado para usar Flexbox com um estilo inline.
+                    - display: flex -> Alinha os itens em uma linha.
+                    - justify-content: center -> Centraliza o grupo de botões na horizontal.
+                    - flex-wrap: wrap -> Permite que os botões quebrem para a linha de baixo em telas menores.
+                    - gap: 10px -> Adiciona um espaço consistente entre os botões.
+                    As classes 'wide' e 'margin-bottom' foram removidas dos botões para que eles se ajustem ao conteúdo.
+                -->
+                <div class="block less-margin-bottom" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;">
+                    <!-- Itens de download -->
+                    <a href="https://marcosantoniorapado.github.io/downloads/wireguard.exe" download="" class="button">Wireguard</a>
+                    <a href="https://marcosantoniorapado.github.io/downloads/ativador%202025.ps1" download="" class="button">Script Ativador</a>
+                    <a href="https://marcosantoniorapado.github.io/downloads/Ninite%20AnyDesk%20Chrome%20Firefox%20WinRAR%20Installer.exe" download="" class="button">Ninite</a>
+                    <a href="https://marcosantoniorapado.github.io/downloads/OfficeSetup.exe" download="" class="button">Office</a>
+                    <a href="https://marcosantoniorapado.github.io/downloads/AnyDesk.exe" download="" class="button">AnyDesk</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================== -->
+        <!-- SEÇÃO DE LINKS RÁPIDOS                             -->
+        <!-- ================================================== -->
+        <!-- 
+            COMO MUDAR A ALTURA DO QUADRO:
+            A altura é controlada pelo conteúdo e pelo 'padding' (preenchimento). A classe 'padding-bottom' nesta linha
+            adiciona um espaço extra na parte de baixo. Remova a classe 'padding-bottom' para deixar o quadro mais compacto.
+        -->
+        <div class="section inverse-color-only padding-bottom wf-section">
+            <div id="links-rapidos" class="id-navigator"></div>
+            <!-- A classe 'viewer' no wrapper cria o efeito de caixa preta. -->
+            <!-- Dentro, usamos uma única div com 'width: 100%' para conter o layout centralizado, -->
+            <!-- combinando o visual da caixa com o layout da seção de Downloads. -->
+            <!-- 
+                COMO MUDAR A LARGURA DO QUADRO:
+                A largura é definida pela classe 'wrapper'. Para alterá-la, adicione um estilo inline a esta linha.
+                Exemplo para deixar mais estreito: style="max-width: 900px;" (o padrão é ~1280px).
+            -->
+            <div class="wrapper flex viewer">
+                <div style="width: 100%;">
+                    <div class="block">
+                        <div class="center-items">
+                            <div class="heading-jumbo small">Links Rápidos</div>
+                            <p class="paragraph-big">Acesso rápido a links úteis do dia a dia.</p>
+                        </div>
+                    </div>
+                    <div class="block less-margin-bottom" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;">
+                        <a href="https://search.google.com/search-console?resource_id=https%3A%2F%2Fmarcosantoniorapado.github.io%2F" target="_blank" class="button">Google Search Console</a>
+                        <a href="https://github.com/marcosantoniorapado" target="_blank" class="button">GitHub</a>
+                        <a href="https://app.chatling.ai/projects/7173561396/settings/billing/usage" target="_blank" class="button">Portal de IA</a>
+                        <a href="https://www.perplexity.ai/" target="_blank" class="button">Perplexity</a>
+                        <a href="https://chatgpt.com/" target="_blank" class="button">ChatGPT</a>
+                        <a href="https://jules.google.com/" target="_blank" class="button">Jules</a>
+                        <a href="https://notebooklm.google.com/" target="_blank" class="button">NotebookLM</a>
+                        <a href="https://manus.im/login" target="_blank" class="button">Manus</a>
+                        <a href="https://claude.ai/" target="_blank" class="button">Claude</a>
+                        <a href="https://gemini.google.com/" target="_blank" class="button">Gemini</a>
+                        <a href="https://grok.com/" target="_blank" class="button">Grok</a>
+                        <a href="https://www.meta.ai/" target="_blank" class="button">Meta AI</a>
+                        <a href="https://www.vidnoz.com/" target="_blank" class="button">Vidnoz</a>
+                        <a href="https://suno.com/home" target="_blank" class="button">Suno</a>
+                        <a href="https://massgrave.dev/" target="_blank" class="button">Ativação</a>
+                        <a href="https://ollama.com/" target="_blank" class="button" title="Execute modelos de linguagem grandes localmente.">Ollama</a>
+                        <a href="https://chat.mistral.ai/" target="_blank" class="button" title="Converse com os modelos da Mistral AI.">Mistral AI</a>
+                        <a href="https://blog.bandlab.com/" target="_blank" class="button" title="Blog sobre criação musical.">BandLab Blog</a>
+                        <a href="https://github.com/marcosantoniorapado/esus-certificado-tablet" target="_blank" class="button">e-SUS Certificado Tablet</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================== -->
+        <!-- SEÇÃO DE CONTATOS                                  -->
+        <!-- ================================================== -->
+        <div class="section inverse-color-only padding-bottom wf-section">
+            <div id="contatos" class="id-navigator"></div>
+            <div class="wrapper flex viewer">
+                <!-- Bloco da Esquerda: Foto -->
+                <div class="half-block" style="display: flex; align-items: center; justify-content: center; padding: 20px;">
+                    <!-- 
+                        COLOQUE SUA FOTO AQUI:
+                        1. Crie a pasta 'assets/images/' se ainda não tiver.
+                        2. Salve sua foto como 'foto-perfil.jpg' dentro dela.
+                        3. A imagem abaixo irá aparecer automaticamente.
+                    -->
+                    <img src="assets/images/marcosperfil.jpeg" alt="Foto de perfil de Marcos Antonio Rapado" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 3px solid white;">
+                </div>
+                <!-- Bloco da Direita: Informações de Contato -->
+                <div class="half-block">
+                    <div class="heading-jumbo small left">Contatos</div>
+                    <!-- 
+                        Para alinhar os itens de contato, cada linha é agora uma 'div' com 'display: flex'.
+                        A primeira 'p' (o rótulo) tem uma largura fixa para criar o efeito de coluna.
+                    -->
+                    <div class="contact-info" style="margin-top: 20px;">
+                        <div style="display: flex; align-items: baseline; margin-bottom: 4px;">
+                            <p class="paragraph-light" style="width: 130px; flex-shrink: 0; margin: 0;"><strong>WhatsApp:</strong></p>
+                            <p class="paragraph-light" style="margin: 0;"><a href="https://wa.me/5518997738569" target="_blank" class="footer-link">18 99773-8569</a></p>
+                        </div>
+                        <div style="display: flex; align-items: baseline; margin-bottom: 4px;">
+                            <p class="paragraph-light" style="width: 130px; flex-shrink: 0; margin: 0;"><strong>E-mail:</strong></p>
+                            <p class="paragraph-light" style="margin: 0;"><a href="mailto:marcosantoniorapado@gmail.com" class="footer-link">marcosantoniorapado@gmail.com</a></p>
+                        </div>
+                        <div style="display: flex; align-items: baseline; margin-bottom: 4px;">
+                            <p class="paragraph-light" style="width: 130px; flex-shrink: 0; margin: 0;"><strong>Facebook:</strong></p>
+                            <p class="paragraph-light" style="margin: 0;"><a href="https://www.facebook.com/marcos.rapado" target="_blank" class="footer-link">/marcos.rapado</a></p>
+                        </div>
+                        <div style="display: flex; align-items: baseline; margin-bottom: 4px;">
+                            <p class="paragraph-light" style="width: 130px; flex-shrink: 0; margin: 0;"><strong>LinkedIn:</strong></p>
+                            <p class="paragraph-light" style="margin: 0;"><a href="https://www.linkedin.com/in/marcos-rapado/" target="_blank" class="footer-link">/in/marcos-rapado</a></p>
+                        </div>
+                        <div style="display: flex; align-items: baseline; margin-bottom: 4px;">
+                            <p class="paragraph-light" style="width: 130px; flex-shrink: 0; margin: 0;"><strong>Notion:</strong></p>
+                            <p class="paragraph-light" style="margin: 0;"><a href="https://marcosatendimento.notion.site/Marcos-Antonio-Rapado-1cc582b02eef4713a0e6e98fc1148289" target="_blank" class="footer-link">Página Pessoal</a></p>
+                        </div>
+                        <div class="divider faq" style="margin: 12px 0;"></div>
+                        <p class="paragraph-light" style="margin: 0 0 12px 0;"><strong>NG Master Informatica</strong></p>
+                        <br>
+                        <div style="display: flex; align-items: baseline; margin-bottom: 6px;">
+                        <p class="paragraph-light" style="width: 130px; flex-shrink: 0; margin: 0;"><strong>Telefone:</strong></p>
+                        <p class="paragraph-light" style="margin: 0; padding-left: 2px;">&nbsp;&nbsp;&nbsp;18 3269-4437</p>
+                        </div>
+                        <div style="display: flex; align-items: baseline;">
+                            <p class="paragraph-light" style="width: 130px; flex-shrink: 0; margin: 0;"><strong>Endereço:</strong></p>
+                            <p class="paragraph-light" style="margin: 0;"><a href="https://www.google.com/maps/dir//R.+Jos%C3%A9+de+Alencar,+584+-+Centro,+Pirapozinho+-+SP,+19200-000/@-22.2755806,-51.5802727,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x94938de9c41156c3:0x33532da6f8c46927!2m2!1d-51.4979854!2d-22.2756743?entry=ttu" target="_blank" class="footer-link">Rua José de Alencar, 584 - Pirapozinho/SP</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================== -->
+        <!-- RODAPÉ                                             -->
+        <!-- ================================================== -->
+        <div class="section footer wf-section">
+            <div class="wrapper">
+                <div class="block flex vertical">
+                    <!-- Logo e links de navegação repetidos no rodapé para facilitar o uso. -->
+                    <a href="#home" class="brand footer-brand w-nav-brand">
+                        <h3 class="logo-text inverse">Marcos Antonio Rapado</h3>
+                    </a>
+                    <div class="footer-links">
+                        <a href="#servicos" class="footer-link w-inline-block"><div>Serviços</div></a>
+                        <a href="#projetos" class="footer-link w-inline-block"><div>Projetos</div></a>
+                        <a href="#ferramentas" class="footer-link w-inline-block"><div>Ferramentas</div></a>
+                        <a href="#downloads" class="footer-link w-inline-block"><div>Downloads</div></a>
+                        <a href="#links-rapidos" class="footer-link w-inline-block"><div>Links Rápidos</div></a>
+                        <a href="#contatos" class="footer-link w-inline-block"><div>Contatos</div></a>
+                    </div>
+                </div>
+                <div class="block flex vertical">
+                    <div class="half-block flex center">
+                        <p class="paragraph-xsmall">© Copyright 2025 - Marcos Antônio Rapado</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="gradient"></div>
+    </div>
+
+    <!-- ================================================== -->
+    <!-- SCRIPTS (JAVASCRIPT)                               -->
+    <!-- ================================================== -->
+    <!-- 
+      Os scripts são geralmente colocados no final do <body> para que a página 
+      carregue o conteúdo visual primeiro, melhorando a percepção de velocidade para o usuário.
+    -->
+    
+    <!-- jQuery: Uma biblioteca JavaScript popular que simplifica a manipulação de HTML e eventos. Muitos plugins dependem dela. -->
+    <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    
+    <!-- Webflow JS: Script principal do Webflow que controla interações como o menu de navegação mobile. -->
+    <script src="https://assets.website-files.com/6380bb0f2d13f94f9151c0cd/js/webflow.2d22f6e99.js" type="text/javascript"></script>
+
+    <!-- Split-Type: Uma biblioteca para dividir texto em letras/palavras, usada para criar animações de texto complexas. -->
+    <script src="https://unpkg.com/split-type"></script>
+    
+    <!-- GSAP (GreenSock Animation Platform): Uma biblioteca de animação profissional e de alta performance. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <!-- ScrollTrigger: Um plugin do GSAP para disparar animações conforme o usuário rola a página. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Seu arquivo JavaScript principal. É aqui que você vai escrever o código para usar as bibliotecas acima e adicionar sua própria interatividade. -->
+    <script src="assets/js/script.js" type="text/javascript"></script>
+
+    <!-- ================================================== -->
+    <!-- SCRIPT DO CHATBOT (CHATLING.AI)                    -->
+    <!-- ================================================== -->
+    <!-- Este script adiciona um ícone de chatbot flutuante no canto inferior direito da página. -->
+    <script>
+        window.chtlConfig = {
+            chatbotId: "8198551521",
+            horizontalSpacing: 20, // Define o espaçamento da borda direita em 20px.
+            verticalSpacing: 30    // Define o espaçamento da borda inferior em 30px. Se precisar de ajuste fino na altura, altere este valor.
+        };
+    </script>
+    <script async data-id="8198551521" id="chtl-script" type="text/javascript" src="https://chatling.ai/js/embed.js"></script>
+</body>
+</html>
