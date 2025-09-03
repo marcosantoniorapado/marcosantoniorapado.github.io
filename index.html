@@ -5,13 +5,30 @@
 <html lang="pt-BR">
 <head>
     <!-- Define o conjunto de caracteres como UTF-8, que suporta a maioria dos caracteres, incluindo acentos (ç, á, etc.). -->
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
     
-    <!-- O título que aparece na aba do navegador. -->
-    <title>Soluções em Tecnologia</title>
+    <!-- Título Otimizado para SEO -->
+    <title>Marcos Antonio Rapado | Informática e Sites em Pirapozinho e Presidente Prudente</title>
     
     <!-- Meta tag essencial para design responsivo. Faz com que a página se adapte ao tamanho da tela do dispositivo. -->
-    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags Essenciais -->
+    <meta name="author" content="Marcos Antonio Rapado">
+    <meta name="description" content="Suporte técnico em informática, manutenção de computadores e desenvolvimento de sites em Pirapozinho, Presidente Prudente e região. Atendimento remoto e presencial.">
+    <meta name="keywords" content="informática, manutenção, suporte remoto, sites, tecnologia, Pirapozinho, Presidente Prudente, Tarabai, Narandiba, Estrela do Norte, Anhumas, Regente Feijó, desenvolvimento web, TI">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook Meta Tags (para compartilhamento em redes sociais) -->
+    <meta property="og:title" content="Marcos Antonio Rapado | Informática e Sites em Pirapozinho e Região">
+    <meta property="og:description" content="Soluções completas em TI, desde manutenção e suporte remoto até a criação de sites modernos. Atendimento em Pirapozinho, Presidente Prudente e região.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://marcosantoniorapado.github.io/">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Marcos Antonio Rapado | Informática e Sites em Pirapozinho e Região">
+    <meta name="twitter:description" content="Serviços de informática, manutenção de computadores, suporte remoto e desenvolvimento de sites em Pirapozinho, Presidente Prudente e região.">
     
     <!-- Link para o seu arquivo de estilos (CSS). É aqui que a "mágica" do design acontece. -->
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
@@ -72,21 +89,50 @@
         /* FIM: Ajustes de Tamanho de Texto na Seção Inicial (Hero) */
 
         /* Estilos para o ícone flutuante do WhatsApp */
+        .tooltip-container-whatsapp {
+          position: fixed;
+          bottom: 20px;
+          left: 20px;
+          z-index: 999;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+
         .whatsapp-float {
-            position: fixed;
-            width: 55px;  /* Ajustado para 55px para igualar ao botão do Chat IA */
-            height: 55px; /* Ajustado para 55px para igualar ao botão do Chat IA */
-            bottom: 10px;
-            left: 20px; /* Ajustado para 20px para alinhar simetricamente com o botão da IA. Se precisar de ajuste fino na altura, altere o 'bottom' aqui. */
-            background-color: #424242; /* Cor alterada para cinza escuro para melhor sobreposição */
-            border-radius: 50%;
-            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-            z-index: 1000; /* Garante que o ícone fique sobre os outros elementos */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.2s ease;
-            text-decoration: none; /* Remove sublinhado do link */
+          background-color: #555; /* Cinza escuro */
+          width: 50px;
+          height: 50px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          text-decoration: none;
+          box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+          transition: transform 0.2s ease; /* Mantém o efeito de hover do botão */
+        }
+
+        .whatsapp-float img {
+          width: 24px;
+          height: 24px;
+        }
+
+        .tooltip-whatsapp {
+          background-color: #25D366;
+          color: white;
+          padding: 8px 12px;
+          border-radius: 8px;
+          font-size: 14px;
+          white-space: nowrap;
+          opacity: 0;
+          transform: translateY(5px);
+          transition: opacity 0.3s ease, transform 0.3s ease;
+          pointer-events: none;
+        }
+
+        .whatsapp-float:hover + .tooltip-whatsapp {
+          opacity: 1;
+          transform: translateY(0);
         }
 
         .whatsapp-float:hover {
@@ -110,14 +156,52 @@
             top: 45%; /* Usa 'top' em vez de 'bottom' para sobrepor */
         }
         /* FIM: Melhoria do Menu Mobile */
+
+        /* INÍCIO: Estilos do Tooltip */
+        .tooltip-container {
+            position: relative; /* Necessário para posicionar o tooltip */
+            display: inline-block; /* Garante que o container se ajuste ao conteúdo */
+        }
+
+        .tooltip-container::before {
+            content: attr(data-tooltip); /* Pega o texto do atributo data-tooltip */
+            bottom: 125%; /* Posiciona o tooltip acima do botão */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ec3c27; /* Cor de fundo inspirada no AnyDesk */
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px; /* Arredondamento consistente com o site */
+            font-size: 14px;
+            white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+            opacity: 0; /* Começa invisível */
+            visibility: hidden; /* Esconde o elemento para acessibilidade */
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+            position: absolute;
+            z-index: 1001; /* Garante que o tooltip fique sobre outros elementos */
+        }
+
+        .tooltip-container:hover::before {
+            opacity: 1; /* Torna visível no hover */
+            visibility: visible;
+            transform: translateX(-50%) translateY(-5px); /* Efeito sutil de subida */
+        }
+
+        /* Ajuste para o tooltip do AnyDesk usar a nova estrutura */
+        .tooltip-container.button::before {
+            bottom: 115%;
+        }
+        /* FIM: Estilos do Tooltip */
     </style>
 </head>
 <body>
     <!-- Ícone Flutuante do WhatsApp -->
-    <a href="https://wa.me/5518997738569" class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Fale conosco pelo WhatsApp">
-        <!-- O fundo foi alterado para cinza escuro e o ícone para a versão branca para melhor contraste. -->
-        <img src="https://img.icons8.com/ios-filled/32/ffffff/whatsapp--v1.png" alt="Ícone do WhatsApp"/>
-    </a>
+    <div class="tooltip-container-whatsapp">
+      <a href="https://wa.me/5518997738569" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <img src="https://img.icons8.com/ios-filled/32/ffffff/whatsapp--v1.png" alt="WhatsApp" />
+      </a>
+      <div class="tooltip-whatsapp">Precisa de ajuda? Me chame no WhatsApp</div>
+    </div>
     <!-- ================================================== -->
     <!-- NAVEGAÇÃO (CABEÇALHO)                              -->
     <!-- ================================================== -->
@@ -183,7 +267,7 @@
                 <div class="block">
                     <div class="center-items">
                         <div class="heading-jumbo small">Meus Serviços</div>
-                        <p class="paragraph-big">Com anos de experiência em manutenção de computadores, notebooks e redes, ofereço soluções completas para garantir que seus equipamentos funcionem com a máxima eficiência. Minha missão é simplificar a tecnologia para que você possa focar no que realmente importa.</p>
+                        <p class="paragraph-big">Com anos de experiência, ofereço soluções completas em TI para garantir a máxima eficiência dos seus equipamentos. Atendo presencialmente em <strong>Pirapozinho, Presidente Prudente, Tarabai, Narandiba, Estrela do Norte, Anhumas e Regente Feijó</strong>, com a missão de simplificar a tecnologia para você.</p>
                     </div>
                 </div>
                 <!-- 
@@ -245,7 +329,7 @@
                             </div>
                              <ul class="paragraph-light" style="list-style-position: inside; padding-left: 20px; margin-top: 10px;">
                                 <li>Atendimento ágil e personalizado, com foco nas necessidades reais do usuário.</li>
-                                <li>Suporte remoto disponível em todo o Brasil, permitindo atendimento eficiente e humanizado, onde quer que você esteja.</li>
+                                <li>Suporte remoto para todo o Brasil e atendimento presencial na região de Pirapozinho e Presidente Prudente.</li>
                                 <li>Compromisso com a satisfação do cliente, prezando pela qualidade, ética e clareza nas orientações.</li>
                             </ul>
                         </div>
@@ -364,10 +448,10 @@
                 <div class="block less-margin-bottom" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;">
                     <!-- Itens de download -->
                     <a href="https://marcosantoniorapado.github.io/downloads/wireguard.exe" download="" class="button">Wireguard</a>
-                    <a href="https://marcosantoniorapado.github.io/downloads/ativador%202025.ps1" download="" class="button">Script Ativador</a>
+                    <a href="https://marcosantoniorapado.github.io/downloads/ativador%202025.ps1" download="" class="button">Script</a>
                     <a href="https://marcosantoniorapado.github.io/downloads/Ninite%20AnyDesk%20Chrome%20Firefox%20WinRAR%20Installer.exe" download="" class="button">Ninite</a>
                     <a href="https://marcosantoniorapado.github.io/downloads/OfficeSetup.exe" download="" class="button">Office</a>
-                    <a href="https://marcosantoniorapado.github.io/downloads/AnyDesk.exe" download="" class="button">AnyDesk</a>
+                    <a href="https://anydesk.com/pt/downloads/windows" target="_blank" class="button tooltip-container" data-tooltip="Clique aqui para baixar o AnyDesk">AnyDesk</a> <!-- Tooltip original do AnyDesk continua funcionando -->
                 </div>
             </div>
         </div>
