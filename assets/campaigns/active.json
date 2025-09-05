@@ -5,7 +5,7 @@
   "delayMs": 5000,
   "showOnExitIntent": true,
   "blockReshowHours": 8,
-  "_nota": "Aqui você muda a quantidade de horas que o popup fica bloqueado"
+  "_nota": "Aqui você muda a quantidade de horas que o popup fica bloqueado",
 
   "headline": "🛑 Atenção Empresários e Comerciantes!",
   "headlineStyle": { "fontSize": "22px", "color": "#b91c1c", "textAlign": "center" },
