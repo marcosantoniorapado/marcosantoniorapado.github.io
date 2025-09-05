@@ -29,6 +29,7 @@ C:.
 ¦           script.js
 ¦           
 +---downloads
+¦       Advanced_IP_Scanner.exe
 ¦       AnyDesk.exe
 ¦       ativador 2025.ps1
 ¦       Ninite AnyDesk Chrome Firefox WinRAR Installer.exe
