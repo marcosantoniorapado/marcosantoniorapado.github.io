@@ -1,0 +1,45 @@
+Listagem de caminhos de pasta para o volume Sistema
+O número de série do volume é 9297-CA05
+C:.
+¦   BingSiteAuth.xml
+¦   google43020fda8a1d2c3d.html
+¦   index.html
+¦   mapadosite.txt
+¦   README.md
+¦   robots.txt
+¦   sitemap.xml
+¦   
++---assets
+¦   +---campaigns
+¦   ¦       active.json
+¦   ¦       
+¦   +---css
+¦   ¦       style.css
+¦   ¦       
+¦   +---images
+¦   ¦       advogado.webp
+¦   ¦       amiga.webp
+¦   ¦       favicon.png
+¦   ¦       marcosperfil.jpeg
+¦   ¦       rh_estrategica.webp
+¦   ¦       
+¦   +---js
+¦           campaign-loader.js
+¦           campaign-modal.js
+¦           script.js
+¦           
++---downloads
+¦       AnyDesk.exe
+¦       ativador 2025.ps1
+¦       Ninite AnyDesk Chrome Firefox WinRAR Installer.exe
+¦       OfficeSetup.exe
+¦       wireguard.exe
+¦       
++---ferramentas
+¦       gravador.html
+¦       recibo.html
+¦       style.css
+¦       
++---projetos
+        base-de-conhecimento-ia.md
+        

@@ -1735,3 +1735,145 @@ form {
     max-width: 90vw;
   }
 }
+
+/* ==========================================================================
+   INÍCIO: Estilos da Campanha Modal (Pop-up)
+   ========================================================================== */
+
+/* A camada escura que cobre o site */
+.campaign-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(2, 6, 23, 0.7); /* Fundo escuro um pouco mais forte */
+  z-index: 9999;
+  padding: 16px;
+  opacity: 0;
+  transition: opacity 200ms ease;
+  backdrop-filter: blur(4px); /* Efeito de desfoque no fundo (moderno) */
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* A caixa (card) principal do pop-up */
+.campaign-card {
+  width: 100%;
+  max-width: 560px; /* Largura máxima vinda do JSON */
+  background-color: #f1f1ed; /* Usa a cor de fundo clara do seu site (cinza-claro) */
+  color: #131313; /* Usa a cor de texto escura do seu site */
+  border-radius: 16px; /* Cantos mais arredondados */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
+  padding: 28px;
+  font-family: sans-serif;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transform: scale(0.95);
+  transition: transform 200ms ease;
+}
+
+/* Efeito de entrada suave */
+.campaign-overlay.visible {
+  opacity: 1;
+}
+.campaign-overlay.visible .campaign-card {
+  transform: scale(1);
+}
+
+/* Botão de fechar (X) */
+.campaign-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: 1px solid #deddd9; /* Borda sutil */
+  background: #fff;
+  color: #131313;
+  padding: 4px 9px;
+  border-radius: 50%; /* Botão redondo */
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  line-height: 1;
+  font-size: 14px;
+}
+.campaign-close-btn:hover {
+  background-color: #deddd9;
+  transform: scale(1.1);
+}
+
+/* Título principal do pop-up */
+.campaign-headline {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  color: #131313; /* Garante a cor escura */
+}
+
+/* Linha de data e informações */
+.campaign-dateline {
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+.campaign-dateline strong {
+  color: #2563eb; /* Cor de destaque vinda do tema do JSON */
+}
+
+/* Título e lista de vantagens */
+.campaign-benefits-title {
+  font-weight: 600;
+  margin: 16px 0 8px 0;
+  font-size: 16px;
+}
+.campaign-bullets {
+  padding-left: 20px;
+  margin: 0 0 16px 0;
+  list-style-type: '✅  '; /* Usa o check como marcador */
+}
+.campaign-bullets li {
+  margin-bottom: 8px;
+  padding-left: 8px;
+}
+
+/* Rodapé com informações de contato */
+.campaign-footer {
+  font-size: 14px;
+  color: #475569; /* Cor de texto "muted" do JSON */
+  margin: 16px 0;
+  border-top: 1px solid #deddd9; /* Linha divisória */
+  padding-top: 16px;
+}
+.campaign-footer div {
+  margin-bottom: 4px;
+}
+
+/* Container dos botões de ação */
+.campaign-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* Estilo para os botões, aproveitando a classe .button do seu site */
+.campaign-ctas a.button {
+  margin: 0; /* Remove a margem padrão do seu .button */
+  text-decoration: none; /* Garante que não haja sublinhado */
+  color: #f1f1ed; /* Cor do texto branco (do seu .button.inverse) */
+  background-color: #2563eb; /* Cor de destaque principal (brand color) */
+  border: 1px solid transparent;
+}
+
+/* Botão secundário, aproveitando a classe .button.inverse */
+.campaign-ctas a.button.inverse {
+  background-color: transparent;
+  border-color: #deddd9;
+  color: #131313;
+}
+.campaign-ctas a.button.inverse:hover {
+  background-color: #deddd9;
+  opacity: 1;
+}
+
+/* ==========================================================================
+   FIM: Estilos da Campanha Modal (Pop-up)
+   ========================================================================== */

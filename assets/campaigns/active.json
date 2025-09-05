@@ -1,0 +1,44 @@
+{
+  "enabled": true,
+  "type": "modal",
+  "id": "nfce-2026",
+  "delayMs": 5000,
+  "showOnExitIntent": true,
+  "blockReshowHours": 8,
+  "_nota": "Aqui você muda a quantidade de horas que o popup fica bloqueado"
+
+  "headline": "🛑 Atenção Empresários e Comerciantes!",
+  "headlineStyle": { "fontSize": "22px", "color": "#b91c1c", "textAlign": "center" },
+
+  "dateLineHtml": "📅 A partir de <strong>01/01/2026</strong>, apenas a <strong>NFC-e</strong> será aceita!",
+  "bulletsHtml": [
+    "✅ Elimina equipamentos como o SAT e permite uso de papel comum.",
+    "✅ Emissão 100% online, de qualquer lugar com internet.",
+    "✅ Reduz filas no atendimento e melhora a experiência do cliente."
+  ],
+  "footerHtml": [
+    "📍 Estamos prontos para atender todos os segmentos!",
+    "📲 WhatsApp: <strong>(19) 99670-9366</strong>",
+    "📌 Endereço: <strong>Rua Tiradentes 1277 – Sobreloja</strong>"
+  ],
+
+  "cta": {
+    "text": "Falar no WhatsApp",
+    "href": "https://wa.me/5519996709366?text=Olá!%20Quero%20saber%20sobre%20NFC-e%202026.",
+    "style": {
+      "background": "#25D366",
+      "borderRadius": "30px",
+      "fontSize": "18px",
+      "padding": "14px 28px"
+    }
+  },
+
+  "theme": {
+    "bg": "#ffffff",
+    "text": "#0f172a",
+    "overlay": "rgba(2,6,23,0.55)",
+    "border": "1px solid #e2e8f0",
+    "muted": "#475569",
+    "maxWidth": "560px"
+  }
+}
