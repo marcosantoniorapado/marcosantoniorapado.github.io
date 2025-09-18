@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de PIX - Marcos Rapado</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    /* Reset e base do seu site */
+    * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    
+    html {
+      height: 100%;
+      font-family: sans-serif;
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+    }
+    
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: #131313;
+      font-family: sans-serif;
+      color: #f1f1ed;
+      font-size: 14px;
+      line-height: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    /* Container principal seguindo o padrão do seu site */
+    .container {
+      display: flex;
+      overflow: hidden;
+      width: 100%;
+      max-width: 500px;
+      padding: 60px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 20px;
+      background-color: #181818;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    /* Título principal */
+    .heading-jumbo {
+      margin-top: 0;
+      margin-bottom: 30px;
+      font-size: 48px;
+      line-height: 110%;
+      font-weight: 400;
+      text-align: center;
+      color: #f1f1ed;
+    }
+
+    /* Grupo de input */
+    .input-group {
+      width: 100%;
+      margin-bottom: 25px;
+      position: relative;
+    }
+
+    /* Campo de input seguindo o padrão do seu site */
+    input[type="number"] {
+      position: relative;
+      height: 50px;
+      width: 100%;
+      padding: 8px 20px;
+      margin-bottom: 0;
+      border-radius: 4px;
+      background-color: hsla(0, 0%, 97%, 0.8);
+      transition: background-color 300ms ease, opacity 300ms ease;
+      color: #131313;
+      font-size: 16px;
+      border: none;
+      text-align: center;
+      outline: none;
+    }
+
+    input[type="number"]:hover {
+      background-color: hsla(0, 0%, 97%, 0.6);
+      opacity: 0.8;
+    }
+
+    input[type="number"]:focus {
+      opacity: 1;
+      background-color: hsla(0, 0%, 97%, 1);
+    }
+
+    input[type="number"]::placeholder {
+      color: rgba(19, 19, 19, 0.5);
+    }
+
+    /* Remove setas do input number */
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+
+    /* Símbolo de moeda */
+    .currency-symbol {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(19, 19, 19, 0.5);
+      font-size: 16px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .input-with-symbol input {
+      padding-left: 45px;
+    }
+
+    /* Botões seguindo exatamente o padrão do seu site */
+    button {
+      padding: 14px 25px;
+      border-style: solid;
+      border-width: 1px;
+      border-color: #131313;
+      border-radius: 4px;
+      background-color: #f1f1ed;
+      transition: opacity 300ms ease;
+      color: #131313;
+      font-size: 15px;
+      line-height: 140%;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      text-transform: none;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    button:active {
+      opacity: 0.7;
+    }
+
+    /* Botão principal (gerar) */
+    .gerar {
+      background-color: #131313;
+      color: #f1f1ed;
+      border-color: #131313;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    /* Botões secundários */
+    .copiar, .whatsapp {
+      background-color: #f1f1ed;
+      color: #131313;
+      border-color: #131313;
+    }
+
+    /* Estado de loading */
+    .loading {
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    /* Seção de resultado */
+    #pix-result {
+      display: none;
+      margin-top: 30px;
+      width: 100%;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* QR Code container */
+    #qrcode {
+      margin: 25px auto;
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      display: inline-block;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #qrcode canvas {
+      display: block;
+      border-radius: 4px;
+    }
+
+    /* Container do código PIX (oculto) */
+    #pixcode {
+      display: none;
+    }
+
+    /* Mensagens de erro */
+    #error-message {
+      color: #ffbebe;
+      min-height: 25px;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    /* Responsividade seguindo o padrão do seu site */
+    @media screen and (max-width: 991px) {
+      .container {
+        padding: 40px;
+        max-width: 420px;
+        border-radius: 16px;
+      }
+      
+      .heading-jumbo {
+        font-size: 42px;
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      body {
+        padding: 20px 5vw;
+      }
+      
+      .container {
+        padding: 30px 20px;
+        border-radius: 12px;
+      }
+      
+      .heading-jumbo {
+        font-size: 36px;
+        margin-bottom: 25px;
+      }
+
+      button {
+        font-size: 16px;
+        padding: 16px 25px;
+      }
+    }
+
+    @media screen and (max-width: 479px) {
+      .container {
+        padding: 20px 15px;
+      }
+      
+      .heading-jumbo {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+
+      input[type="number"] {
+        height: 45px;
+        font-size: 15px;
+      }
+
+      .currency-symbol {
+        font-size: 15px;
+      }
+
+      button {
+        font-size: 15px;
+        padding: 14px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="heading-jumbo">Gerador de PIX</h1>
+    
+    <div class="input-group input-with-symbol">
+      <span class="currency-symbol">R$</span>
+      <input type="number" id="valor" placeholder="0,00" step="0.01" min="0.01">
+    </div>
+    
+    <div id="error-message"></div>
+    <button class="gerar" onclick="gerarPix()">Gerar QR Code PIX</button>
+    
+    <!-- Seção de Resultado -->
+    <div id="pix-result">
+      <div id="qrcode"></div>
+      <div id="pixcode"></div>
+      <button class="copiar" onclick="copiarPix()">Copiar Código PIX</button>
+      <button class="whatsapp" onclick="enviarWhatsApp()">Enviar pelo WhatsApp</button>
+    </div>
+  </div>
+
+  <!-- Biblioteca QR Code -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+
+  <script>
+    // Função para gerar o payload PIX manualmente
+    function gerarPayloadPix(chave, nome, cidade, valor, txid = "***") {
+        function criarCampo(id, valor) {
+            const tamanho = valor.length.toString().padStart(2, '0');
+            return id + tamanho + valor;
+        }
+
+        let payload = '';
+        
+        // Payload Format Indicator
+        payload += criarCampo('00', '01');
+        
+        // Point of Initiation Method
+        payload += criarCampo('01', '12');
+        
+        // Merchant Account Information
+        let merchantInfo = '';
+        merchantInfo += criarCampo('00', 'BR.GOV.BCB.PIX');
+        merchantInfo += criarCampo('01', chave);
+        payload += criarCampo('26', merchantInfo);
+        
+        // Merchant Category Code
+        payload += criarCampo('52', '0000');
+        
+        // Transaction Currency (986 = BRL)
+        payload += criarCampo('53', '986');
+        
+        // Transaction Amount
+        if (valor && valor > 0) {
+            payload += criarCampo('54', valor.toFixed(2));
+        }
+        
+        // Country Code
+        payload += criarCampo('58', 'BR');
+        
+        // Merchant Name
+        payload += criarCampo('59', nome);
+        
+        // Merchant City
+        payload += criarCampo('60', cidade);
+        
+        // Additional Data Field Template
+        if (txid) {
+            let additionalData = criarCampo('05', txid);
+            payload += criarCampo('62', additionalData);
+        }
+        
+        // CRC16
+        payload += '6304';
+        
+        const crc = calcularCRC16(payload);
+        payload += crc;
+        
+        return payload;
+    }
+
+    // Função para calcular CRC16
+    function calcularCRC16(str) {
+        const polynomial = 0x1021;
+        let crc = 0xFFFF;
+        
+        for (let i = 0; i < str.length; i++) {
+            crc ^= str.charCodeAt(i) << 8;
+            for (let j = 0; j < 8; j++) {
+                if (crc & 0x8000) {
+                    crc = (crc << 1) ^ polynomial;
+                } else {
+                    crc = crc << 1;
+                }
+                crc &= 0xFFFF;
+            }
+        }
+        
+        return crc.toString(16).toUpperCase().padStart(4, '0');
+    }
+
+    function gerarPix() {
+      const valorInput = document.getElementById('valor');
+      const errorMessage = document.getElementById('error-message');
+      const gerarBtn = document.querySelector('.gerar');
+      const inputGroup = document.querySelector('.input-group');
+      const valor = parseFloat(valorInput.value);
+      
+      // Limpa mensagens anteriores
+      errorMessage.textContent = '';
+
+      // Validações
+      if (!valorInput.value || isNaN(valor) || valor <= 0) {
+        errorMessage.textContent = 'Por favor, digite um valor válido maior que zero.';
+        valorInput.focus();
+        return;
+      }
+
+      if (valor > 999999.99) {
+        errorMessage.textContent = 'Valor muito alto. Máximo permitido: R$ 999.999,99';
+        return;
+      }
+
+      // Dados do PIX
+      const chave = "3b89deab-7eef-407f-87cf-8133cee9cb2d";
+      const nome = "MARCOS ANTONIO RAPADO";
+      const cidade = "PIRAPOZINHO";
+      const txid = "***";
+
+      // Feedback visual
+      gerarBtn.textContent = 'Gerando...';
+      gerarBtn.classList.add('loading');
+
+      try {
+        // Gera o payload PIX
+        const payload = gerarPayloadPix(chave, nome, cidade, valor, txid);
+        
+        // Armazena o código PIX
+        document.getElementById('pixcode').textContent = payload;
+        
+        // Esconde o campo de valor e mensagem de erro
+        inputGroup.style.display = 'none';
+        errorMessage.style.display = 'none';
+        
+        // Mostra a seção de resultado
+        document.getElementById('pix-result').style.display = 'block';
+
+        // Gera o QR Code
+        const qrcodeContainer = document.getElementById('qrcode');
+        qrcodeContainer.innerHTML = '';
+        
+        QRCode.toCanvas(payload, { 
+          width: 240, 
+          margin: 2,
+          color: {
+            dark: '#000000',
+            light: '#FFFFFF'
+          }
+        }, function (error, canvas) {
+          if (error) {
+              console.error('Erro no QR Code:', error);
+              errorMessage.textContent = "Erro ao gerar o QR Code. Tente novamente.";
+              errorMessage.style.display = 'block';
+              inputGroup.style.display = 'block';
+          } else {
+              qrcodeContainer.appendChild(canvas);
+              
+              // Scroll suave para o resultado
+              setTimeout(() => {
+                document.getElementById('pix-result').scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'center'
+                });
+              }, 100);
+          }
+          
+          // Muda o botão para "Gerar Novo PIX"
+          gerarBtn.textContent = 'Gerar Novo PIX';
+          gerarBtn.classList.remove('loading');
+          gerarBtn.onclick = gerarNovoPix;
+        });
+
+      } catch (error) {
+        console.error('Erro geral:', error);
+        errorMessage.textContent = "Erro ao processar. Verifique os dados e tente novamente.";
+        gerarBtn.textContent = 'Gerar QR Code PIX';
+        gerarBtn.classList.remove('loading');
+      }
+    }
+
+    function gerarNovoPix() {
+      // Volta para a tela inicial
+      const inputGroup = document.querySelector('.input-group');
+      const errorMessage = document.getElementById('error-message');
+      const gerarBtn = document.querySelector('.gerar');
+      const pixResult = document.getElementById('pix-result');
+      const valorInput = document.getElementById('valor');
+      
+      // Mostra o campo de valor novamente
+      inputGroup.style.display = 'block';
+      errorMessage.style.display = 'block';
+      errorMessage.textContent = '';
+      
+      // Esconde o resultado
+      pixResult.style.display = 'none';
+      
+      // Limpa o campo de valor
+      valorInput.value = '';
+      
+      // Restaura o botão original
+      gerarBtn.textContent = 'Gerar QR Code PIX';
+      gerarBtn.onclick = gerarPix;
+      
+      // Foca no campo de valor
+      valorInput.focus();
+    }
+
+    function copiarPix() {
+      const texto = document.getElementById('pixcode').textContent;
+      if (!texto) return;
+
+      // Método moderno de cópia
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(texto).then(() => {
+          mostrarFeedbackCopia();
+        }).catch(() => {
+          copiarTextoFallback(texto);
+        });
+      } else {
+        copiarTextoFallback(texto);
+      }
+    }
+
+    function copiarTextoFallback(texto) {
+      const textarea = document.createElement('textarea');
+      textarea.value = texto;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      
+      try {
+        document.execCommand('copy');
+        mostrarFeedbackCopia();
+      } catch (err) {
+        console.error('Erro ao copiar:', err);
+        alert('Não foi possível copiar automaticamente. Selecione e copie o código manualmente.');
+      }
+      
+      document.body.removeChild(textarea);
+    }
+
+    function mostrarFeedbackCopia() {
+      const copyButton = document.querySelector('.copiar');
+      const textoOriginal = copyButton.textContent;
+      
+      copyButton.textContent = 'Copiado!';
+      copyButton.style.backgroundColor = '#131313';
+      copyButton.style.color = '#f1f1ed';
+      
+      setTimeout(() => {
+        copyButton.textContent = textoOriginal;
+        copyButton.style.backgroundColor = '';
+        copyButton.style.color = '';
+      }, 2000);
+    }
+
+    function enviarWhatsApp() {
+      const texto = document.getElementById('pixcode').textContent;
+      
+      if (!texto) return;
+      
+      const link = `https://api.whatsapp.com/send?text=${encodeURIComponent(texto)}`;
+      window.open(link, '_blank');
+    }
+
+    // Permite gerar PIX pressionando Enter
+    document.getElementById('valor').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        gerarPix();
+      }
+    });
+  </script>
+</body>
+</html>
