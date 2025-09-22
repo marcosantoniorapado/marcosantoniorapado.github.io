@@ -4,4 +4,4 @@ User-agent: *
 Allow: /
 
 # Sitemap para auxiliar na descoberta das páginas
-Sitemap: https://marcosantoniorapado.github.io/sitemap.xml
+Sitemap: https://marcosantoniorapado.com.br/sitemap.xml
