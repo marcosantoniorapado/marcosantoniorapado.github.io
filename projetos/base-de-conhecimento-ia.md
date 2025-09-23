@@ -89,7 +89,7 @@ Disponíveis em: `https://marcosantoniorapado.github.io/downloads/`
 
 ### Marcos Antonio Rapado
 - **WhatsApp:** [18 99773-8569](https://wa.me/5518997738569)
-- **E-mail:** marcosantoniorapado@gmail.com
+- **E-mail:** contato@marcosantoniorapado.com.br
 - **Facebook:** [facebook.com/marcos.rapado](https://www.facebook.com/marcos.rapado)
 - **LinkedIn:** [linkedin.com/in/marcos-rapado](https://www.linkedin.com/in/marcos-rapado)
 - **Notion:** [Página Pessoal](https://marcosatendimento.notion.site/Marcos-Antonio-Rapado-1cc582b02eef4713a0e6e98fc1148289)

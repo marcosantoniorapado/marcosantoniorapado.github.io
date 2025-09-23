@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Página Principal -->
+
+  <!-- Página inicial -->
   <url>
-    <loc>https://marcosantoniorapado.github.io/</loc>
-    <lastmod>2024-05-21</lastmod>
+    <loc>https://marcosantoniorapado.com.br/</loc>
+    <lastmod>2025-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
+
   <!-- Ferramentas -->
   <url>
-    <loc>https://marcosantoniorapado.github.io/ferramentas/gravador.html</loc>
-    <lastmod>2024-05-21</lastmod>
+    <loc>https://marcosantoniorapado.com.br/ferramentas/gravador.html</loc>
+    <lastmod>2025-09-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
-    <loc>https://marcosantoniorapado.github.io/ferramentas/recibo.html</loc>
-    <lastmod>2024-05-21</lastmod>
+    <loc>https://marcosantoniorapado.com.br/ferramentas/recibo.html</loc>
+    <lastmod>2025-09-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
-  <!-- Adicione mais URLs conforme necessário -->
+
 </urlset>

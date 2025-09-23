@@ -26,5 +26,5 @@ Este é o repositório do meu site pessoal publicado com o GitHub Pages. A propo
 ## 📬 Contato
 
 - WhatsApp: [18 99773-8569](https://wa.me/5518997738569)
-- E-mail: marcosantoniorapado@gmail.com
+- E-mail: contato@marcosantoniorapado.com.br
 - LinkedIn: [Marcos Rapado](https://www.linkedin.com/in/marcos-rapado)
