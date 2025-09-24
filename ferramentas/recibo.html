@@ -80,11 +80,14 @@
                             <label for="pagador">Nome de quem paga:</label>
                             <input type="text" id="pagador" name="pagador" placeholder="Nome do cliente/pagador">
 
+                            <label for="pagador_documento">CPF/CNPJ de quem paga (Opcional):</label>
+                            <input type="text" id="pagador_documento" placeholder="CPF ou CNPJ do pagador">
+
                             <label for="recebedor">Nome de quem recebe:</label>
                             <input type="text" id="recebedor" name="recebedor" placeholder="Seu nome completo">
 
-                            <label for="documento">CPF/CNPJ do Pagador (Opcional):</label>
-                            <input type="text" id="documento" placeholder="CPF ou CNPJ de quem pagou">
+                            <label for="recebedor_documento">CPF/CNPJ de quem recebe (Opcional):</label>
+                            <input type="text" id="recebedor_documento" placeholder="CPF ou CNPJ do recebedor">
 
                             <label for="valor">Valor (R$):</label>
                             <input type="text" id="valor" name="valor" placeholder="Ex: 150,00">
@@ -142,13 +145,17 @@
         function ajustarCampos() {
             const tipo = document.getElementById("tipo").value;
             const recebedorInput = document.getElementById("recebedor");
+            const recebedorDocumentoInput = document.getElementById("recebedor_documento");
 
             if (tipo === "loja") {
                 recebedorInput.value = "NG Master Informatica";
+                recebedorDocumentoInput.value = "08.800.118/0001-06"; // CNPJ da NG Master
             } else if (tipo === "pessoal") {
                 recebedorInput.value = "Marcos Antonio Rapado";
+                recebedorDocumentoInput.value = ""; // Limpa o campo de documento
             } else {
                 recebedorInput.value = "";
+                recebedorDocumentoInput.value = ""; // Limpa o campo de documento
             }
         }
 
@@ -164,9 +171,10 @@
                 // LÓGICA DE GERAÇÃO ATUALIZADA
                 const pagador = document.getElementById("pagador").value;
                 const recebedor = document.getElementById("recebedor").value;
-                const documento = document.getElementById("documento").value;
                 const valor = document.getElementById("valor").value;
                 const referente = document.getElementById("referente").value;
+                const pagadorDocumento = document.getElementById("pagador_documento").value;
+                const recebedorDocumento = document.getElementById("recebedor_documento").value;
 
                 if (!valor || !recebedor || !pagador || !referente) {
                     alert('Por favor, preencha todos os campos para gerar o recibo.');
@@ -181,9 +189,10 @@
 
                 let output = `RECIBO\n\n`;
                 output += `Recebemos de: ${pagador}\n`;
-                if (documento) output += `Documento: ${documento}\n`;
+                if (pagadorDocumento) output += `Documento do Pagador: ${pagadorDocumento}\n`;
                 output += `\n`;
                 output += `Recebedor: ${recebedor}\n`;
+                if (recebedorDocumento) output += `Documento do Recebedor: ${recebedorDocumento}\n`;
                 output += `Valor: R$ ${valor}\n\n`;
                 output += `Referente a: ${referente}\n\n`;
                 output += `Local e data: ${dataFormatada}\n\n`;
@@ -210,28 +219,91 @@
 
             // NOVO: Evento para o botão de imprimir
             printBtn.addEventListener('click', function() {
-                // Seleciona apenas o texto do recibo gerado
+                // Pega os valores novamente para montar um HTML mais rico
+                const pagador = document.getElementById("pagador").value;
+                const recebedor = document.getElementById("recebedor").value;
+                const valor = document.getElementById("valor").value;
+                const referente = document.getElementById("referente").value;
+                const pagadorDocumento = document.getElementById("pagador_documento").value;
+                const recebedorDocumento = document.getElementById("recebedor_documento").value;
+
+                if (!receiptTextElem.textContent) {
+                    alert('Primeiro, gere o recibo antes de imprimir.');
+                    return;
+                }
+
+                const dataAtual = new Date();
+                const dia = String(dataAtual.getDate()).padStart(2, '0');
+                const mes = String(dataAtual.getMonth() + 1).padStart(2, '0');
+                const ano = dataAtual.getFullYear();
+                const hora = String(dataAtual.getHours()).padStart(2, '0');
+                const minuto = String(dataAtual.getMinutes()).padStart(2, '0');
+                const dataFormatada = `Pirapozinho - ${dia}/${mes}/${ano} às ${hora}:${minuto}`;
+
+                // --- INÍCIO: HTML Otimizado para Impressão ---
                 const reciboHTML = `
                     <html>
                     <head>
                         <title>Recibo de Pagamento</title>
                         <style>
-                            body { font-family: Arial, sans-serif; margin: 30px; }
-                            pre { font-family: 'Courier New', Courier, monospace; font-size: 16px; line-height: 1.6; }
+                            /* Adicionado um margin-top para descer o quadro */
+                            body { font-family: Arial, sans-serif; margin: 3cm 1.5cm 2cm 1.5cm; }
+                            .receipt-container { 
+                                border: 1px solid #ccc; 
+                                padding: 25px; 
+                                max-width: 18cm; 
+                                margin: 0 auto;
+                            }
+                            h1 { font-size: 24px; text-align: center; margin-bottom: 30px; font-weight: bold; }
+                            /* Aumentado o margin-bottom para o parágrafo do pagador */
+                            p { font-size: 16px; line-height: 1.6; margin: 12px 0; }
+                            .signature { margin-top: 50px; text-align: center; }
                         </style>
                     </head>
                     <body>
-                        <pre>${receiptTextElem.textContent}</pre>
+                        <div class="receipt-container">
+                            <h1>RECIBO</h1>
+                            <p><strong>Recebemos de:</strong> ${pagador}</p>
+                            ${pagadorDocumento ? `<p><strong>Documento do Pagador:</strong> ${pagadorDocumento}</p>` : ''}
+                            <br>
+                            <p><strong>Recebedor:</strong> ${recebedor}</p>
+                            ${recebedorDocumento ? `<p><strong>Documento do Recebedor:</strong> ${recebedorDocumento}</p>` : ''}
+                            <p><strong>Valor:</strong> R$ ${valor}</p>
+                            <p><strong>Referente a:</strong> ${referente}</p>
+                            <br>
+                            <p>${dataFormatada}</p>
+                            <div class="signature">
+                                <p>________________________________________</p>
+                                <p>${recebedor}</p>
+                            </div>
+                        </div>
                     </body>
                     </html>
                 `;
+                // --- FIM: HTML Otimizado para Impressão ---
 
-                // Abre uma nova janela, escreve o conteúdo do recibo nela e imprime
-                const printWindow = window.open('', '_blank', 'height=600,width=800');
+                // --- INÍCIO: Centralizar a janela de impressão ---
+                const winWidth = 800;
+                const winHeight = 600;
+                const top = (screen.height / 2) - (winHeight / 2);
+                const left = (screen.width / 2) - (winWidth / 2);
+                // Ajuste para subir a janela um pouco (diminuir o valor de 'top')
+                const ajusteTop = 80; // Ajuste a quantidade conforme necessário (em pixels)
+                const features = `width=${winWidth},height=${winHeight},top=${top - ajusteTop},left=${left}`;
+                // --- FIM: Centralizar a janela de impressão ---
+
+                const printWindow = window.open('', '_blank', features);
                 printWindow.document.write(reciboHTML);
-                printWindow.document.close(); // Fecha o documento para que o navegador processe o conteúdo
+                printWindow.document.close();
+                
+                // Foca na janela de impressão
+                printWindow.focus();
+                
+                // Imprime o conteúdo
                 printWindow.print();
-                printWindow.close();
+
+                // Adiciona um listener para fechar a janela APÓS a impressão
+                printWindow.addEventListener('afterprint', () => printWindow.close());
             });
         });
         // --- FIM DAS MODIFICAÇÕES ---
