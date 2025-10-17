@@ -1,0 +1,364 @@
+<html lang="pt-BR">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Soluções em Tecnologia</title>
+    
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    
+    <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
+    
+    <link href="../assets/images/favicon.png" rel="shortcut icon" type="image/x-icon">
+    <link href="../assets/images/apple-touch-icon.png" rel="apple-touch-icon">
+    
+    <style>
+        .whatsapp-float {
+            position: fixed; width: 55px; height: 55px; bottom: 10px; left: 20px;
+            background-color: #424242; border-radius: 50%; box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            z-index: 1000; display: flex; align-items: center; justify-content: center;
+            transition: transform 0.2s ease; text-decoration: none;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+
+        /* Estilos para a ferramenta de orçamento */
+        .receipt-tool-container {
+            max-width: 700px; margin: 40px auto; padding: 30px; border: 1px solid #444;
+            border-radius: 8px; background-color: #2f2f2f;
+        }
+        .receipt-tool-container label { display: block; margin-bottom: 8px; font-weight: bold; margin-top: 15px; }
+        .receipt-tool-container input[type="text"],
+        .receipt-tool-container textarea,
+        .receipt-tool-container select { /* Adicionado 'select' aqui */
+            width: 100%; padding: 10px; border: 1px solid #555; border-radius: 4px;
+            background-color: #3b3b3b; color: #f1f1f1; margin-bottom: 10px; box-sizing: border-box;
+        }
+        .receipt-tool-container .button-group { display: flex; gap: 10px; margin-top: 20px; justify-content: center; }
+        .receipt-tool-container .button { display: inline-block; cursor: pointer; flex-grow: 1; }
+        #receipt-output { margin-top: 30px; display: none; }
+        #receipt-text {
+            background-color: #3b3b3b; padding: 15px; border-radius: 5px; white-space: pre-wrap;
+            word-wrap: break-word; color: #f1f1f1; border: 1px solid #555;
+        }
+        #copy-feedback { margin-left: 10px; color: #4CAF50; display: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <a href="https://wa.me/5518997738569" class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Fale conosco pelo WhatsApp">
+        <img src="https://img.icons8.com/ios-filled/32/ffffff/whatsapp--v1.png" alt="Ícone do WhatsApp"/>
+    </a>
+    <div data-animation="default" class="navbar w-nav" data-easing2="ease-in-quart" data-easing="ease-out-quart" data-collapse="medium" role="banner" data-duration="400">
+        <div class="navbar-container">
+            <a href="../index.html#home" class="brand w-nav-brand"><h3 class="logo-text">Soluções em Tecnologia</h3></a>
+            <nav role="navigation" class="nav-menu w-nav-menu">
+                <a href="../index.html#servicos" class="nav-link w-inline-block"><div>Serviços</div></a>
+                <a href="../index.html#projetos" class="nav-link w-inline-block"><div>Projetos</div></a>
+                <a href="../index.html#ferramentas" class="nav-link w-inline-block"><div>Ferramentas</div></a>
+                <a href="../index.html#downloads" class="nav-link w-inline-block"><div>Downloads</div></a>
+                <a href="../index.html#links-rapidos" class="nav-link w-inline-block"><div>Links</div></a>
+                <a href="../index.html#contatos" class="nav-link w-inline-block"><div>Contatos</div></a>
+                <a href="../index.html#home" class="nav-link login-link w-inline-block" aria-label="Área restrita">
+                    <div class="login-link__content">
+                        <svg class="login-link__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span>Login</span>
+                    </div>
+                </a>
+            </nav>
+            <div class="burger-wrapper w-nav-button"><div class="burger-line top"></div><div class="burger-line"></div></div>
+        </div>
+        <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div>
+    </div>
+
+    <div class="scroll-wrapper">
+        <div class="section wf-section">
+            <div class="wrapper">
+                <div class="block"><div class="center-items"><div class="heading-jumbo small">Criador de Orçamento</div><p class="paragraph-big">Preencha os campos abaixo para montar um orçamento personalizado.</p></div></div>
+                <div class="block">
+                    <div class="receipt-tool-container">
+                        <form id="receipt-form" onsubmit="return false;">
+                            
+                            <label for="tipo">Modelo de Orçamento:</label>
+                            <select id="tipo" onchange="ajustarCampos()">
+                              <option value="personalizado">Opção 01 - Personalizado</option>
+                              <option value="ngmaster">Opção 02 - NG Master</option>
+                              <option value="marcos">Opção 03 - Marcos</option>
+                            </select>
+
+                            <label for="pagador">Orçamento para:</label>
+                            <input type="text" id="pagador" name="pagador" placeholder="Nome do cliente ou empresa">
+
+                            <label for="pagador_documento">Documento do cliente (Opcional):</label>
+                            <input type="text" id="pagador_documento" placeholder="CPF ou CNPJ do cliente">
+
+                            <label for="recebedor">Emitente do orçamento:</label>
+                            <input type="text" id="recebedor" name="recebedor" placeholder="Ex: NG Master Informatica">
+
+                            <label for="recebedor_documento">Documento do emitente (Opcional):</label>
+                            <input type="text" id="recebedor_documento" placeholder="CPF ou CNPJ do emitente">
+
+                            <label for="valor">Valor (R$):</label>
+                            <input type="text" id="valor" name="valor" placeholder="Ex: 1.250,00">
+
+                            <label for="referente">Descrição do orçamento (produtos/serviços):</label>
+                            <textarea id="referente" name="referente" rows="3" placeholder="Descreva os itens incluídos no orçamento."></textarea>
+                            
+                            <div class="button-group">
+                                <button type="button" id="generate-btn" class="button">Gerar Orçamento</button>
+                                <button type="button" id="copy-btn" class="button">Copiar Texto</button>
+                                <button type="button" id="print-btn" class="button">Imprimir</button> </div>
+                        </form>
+                        <div id="receipt-output">
+                            <h3>Orçamento Gerado:</h3>
+                            <pre id="receipt-text"></pre>
+                            <div style="text-align: center; margin-top: 10px;">
+                                <span id="copy-feedback">Copiado!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section footer wf-section">
+            <div class="wrapper">
+                <div class="block flex vertical">
+                    <a href="../index.html#home" class="brand footer-brand w-nav-brand"><h3 class="logo-text inverse">Marcos Antonio Rapado</h3></a>
+                    <div class="footer-links">
+                        <a href="../index.html#servicos" class="footer-link w-inline-block"><div>Serviços</div></a>
+                        <a href="../index.html#projetos" class="footer-link w-inline-block"><div>Projetos</div></a>
+                        <a href="../index.html#ferramentas" class="footer-link w-inline-block"><div>Ferramentas</div></a>
+                        <a href="../index.html#downloads" class="footer-link w-inline-block"><div>Downloads</div></a>
+                        <a href="../index.html#links-rapidos" class="footer-link w-inline-block"><div>Links Rápidos</div></a>
+                        <a href="../index.html#contatos" class="footer-link w-inline-block"><div>Contatos</div></a>
+                    </div>
+                </div>
+                <div class="block flex vertical"><div class="half-block flex center"><p class="paragraph-xsmall">© Copyright 2025 Marcos Antonio Rapado</p></div></div>
+            </div>
+        </div>
+        <div class="gradient"></div>
+    </div>
+
+    <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://assets.website-files.com/6380bb0f2d13f94f9151c0cd/js/webflow.2d22f6e99.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="../assets/js/script.js" type="text/javascript"></script>
+
+    <script>
+        // --- INÍCIO DAS MODIFICAÇÕES ---
+
+        const MARCOS_CONTACT = {
+            nome: "Marcos Antonio Rapado",
+            telefone: "(18) 99773-8569",
+            email: "contato@marcosantoniorapado.com.br"
+        };
+
+        // FUNÇÃO ADICIONADA: para o menu de seleção
+        function ajustarCampos() {
+            const tipo = document.getElementById("tipo").value;
+            const recebedorInput = document.getElementById("recebedor");
+            const recebedorDocumentoInput = document.getElementById("recebedor_documento");
+
+            if (tipo === "ngmaster") {
+                recebedorInput.value = "NG Master Informatica";
+                recebedorDocumentoInput.value = "08.800.118/0001-06"; // CNPJ da NG Master
+            } else if (tipo === "marcos") {
+                recebedorInput.value = MARCOS_CONTACT.nome;
+                recebedorDocumentoInput.value = ""; // Limpa o campo de documento
+            } else {
+                recebedorInput.value = "";
+                recebedorDocumentoInput.value = ""; // Limpa o campo de documento
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            ajustarCampos();
+            const generateBtn = document.getElementById('generate-btn');
+            const copyBtn = document.getElementById('copy-btn');
+            const printBtn = document.getElementById('print-btn');
+            const receiptOutput = document.getElementById('receipt-output');
+            const receiptTextElem = document.getElementById('receipt-text');
+            const copyFeedback = document.getElementById('copy-feedback');
+
+            generateBtn.addEventListener('click', function() {
+                // LÓGICA DE GERAÇÃO ATUALIZADA
+                const pagador = document.getElementById("pagador").value;
+                const recebedor = document.getElementById("recebedor").value;
+                const valor = document.getElementById("valor").value;
+                const referente = document.getElementById("referente").value;
+                const pagadorDocumento = document.getElementById("pagador_documento").value;
+                const recebedorDocumento = document.getElementById("recebedor_documento").value;
+                const tipoSelecionado = document.getElementById("tipo").value;
+
+                if (!recebedor || !pagador || !referente) {
+                    alert('Por favor, preencha os campos obrigatórios para gerar o orçamento.');
+                    return;
+                }
+
+                const dataAtual = new Date();
+                const dia = String(dataAtual.getDate()).padStart(2, '0');
+                const mes = String(dataAtual.getMonth() + 1).padStart(2, '0');
+                const ano = dataAtual.getFullYear();
+                const dataFormatada = `Pirapozinho - ${dia}/${mes}/${ano}`;
+
+                let output = `ORÇAMENTO\n\n`;
+                if (tipoSelecionado === "marcos") {
+                    output += `${MARCOS_CONTACT.nome}\n`;
+                    output += `WhatsApp/Telefone: ${MARCOS_CONTACT.telefone}\n`;
+                    output += `E-mail: ${MARCOS_CONTACT.email}\n\n`;
+                } else {
+                    output += `Emitente: ${recebedor}\n`;
+                    if (recebedorDocumento) output += `Documento do Emitente: ${recebedorDocumento}\n`;
+                    output += `\n`;
+                }
+                output += `Cliente: ${pagador}\n`;
+                if (pagadorDocumento) output += `Documento do Cliente: ${pagadorDocumento}\n`;
+                output += `\n`;
+                output += `Detalhes do orçamento:\n${referente}\n\n`;
+                if (valor) {
+                    output += `Valor: R$ ${valor}\n\n`;
+                }
+                output += `Local e data: ${dataFormatada}\n\n`;
+                output += `Assinatura: ____________________________\n`;
+                output += `${recebedor}`;
+
+                receiptTextElem.textContent = output;
+                receiptOutput.style.display = 'block';
+                copyFeedback.style.display = 'none';
+            });
+
+            copyBtn.addEventListener('click', function() {
+                if (!receiptTextElem.textContent) {
+                  alert('Gere um orçamento antes de copiar.');
+                  return;
+                }
+                navigator.clipboard.writeText(receiptTextElem.textContent).then(() => {
+                    copyFeedback.style.display = 'inline';
+                    setTimeout(() => { copyFeedback.style.display = 'none'; }, 2000);
+                }).catch(err => {
+                    console.error('Erro ao copiar o texto: ', err);
+                    alert('Não foi possível copiar o texto. Tente manualmente.');
+                });
+            });
+
+            // NOVO: Evento para o botão de imprimir
+            printBtn.addEventListener('click', function() {
+                // Pega os valores novamente para montar um HTML mais rico
+                const pagador = document.getElementById("pagador").value;
+                const recebedor = document.getElementById("recebedor").value;
+                const valor = document.getElementById("valor").value;
+                const referente = document.getElementById("referente").value;
+                const pagadorDocumento = document.getElementById("pagador_documento").value;
+                const recebedorDocumento = document.getElementById("recebedor_documento").value;
+                const tipoSelecionado = document.getElementById("tipo").value;
+
+                if (!receiptTextElem.textContent) {
+                    alert('Primeiro, gere o orçamento antes de imprimir.');
+                    return;
+                }
+
+                const dataAtual = new Date();
+                const dia = String(dataAtual.getDate()).padStart(2, '0');
+                const mes = String(dataAtual.getMonth() + 1).padStart(2, '0');
+                const ano = dataAtual.getFullYear();
+                const hora = String(dataAtual.getHours()).padStart(2, '0');
+                const minuto = String(dataAtual.getMinutes()).padStart(2, '0');
+                const dataFormatada = `Pirapozinho - ${dia}/${mes}/${ano} às ${hora}:${minuto}`;
+
+                const headerContactHTML = tipoSelecionado === "marcos"
+                    ? `
+                            <div class="header-contact">
+                                <p><strong>${MARCOS_CONTACT.nome}</strong></p>
+                                <p>WhatsApp/Telefone: ${MARCOS_CONTACT.telefone}</p>
+                                <p>E-mail: ${MARCOS_CONTACT.email}</p>
+                            </div>
+                        `
+                    : "";
+
+                const emitenteSection = tipoSelecionado === "marcos"
+                    ? ""
+                    : `
+                            <p><strong>Emitente:</strong> ${recebedor}</p>
+                            ${recebedorDocumento ? `<p><strong>Documento do Emitente:</strong> ${recebedorDocumento}</p>` : ''}
+                            <br>
+                        `;
+
+                // --- INÍCIO: HTML Otimizado para Impressão ---
+                const orcamentoHTML = `
+                    <html>
+                    <head>
+                        <title>Orçamento</title>
+                        <style>
+                            body { font-family: Arial, sans-serif; margin: 3cm 1.5cm 2cm 1.5cm; }
+                            .budget-container { 
+                                border: 1px solid #ccc; 
+                                padding: 25px; 
+                                max-width: 18cm; 
+                                margin: 0 auto;
+                            }
+                            h1 { font-size: 24px; text-align: center; margin-bottom: 30px; font-weight: bold; }
+                            p { font-size: 16px; line-height: 1.6; margin: 12px 0; }
+                            .header-contact { text-align: center; margin-top: -10px; margin-bottom: 20px; }
+                            .header-contact p { margin: 4px 0; }
+                            .signature { margin-top: 50px; text-align: center; }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="budget-container">
+                            <h1>ORÇAMENTO</h1>
+                            ${headerContactHTML}
+                            ${emitenteSection}
+                            <p><strong>Cliente:</strong> ${pagador}</p>
+                            ${pagadorDocumento ? `<p><strong>Documento do Cliente:</strong> ${pagadorDocumento}</p>` : ''}
+                            <br>
+                            <p><strong>Detalhes do orçamento:</strong></p>
+                            <p>${referente.replace(/\\n/g, '<br>')}</p>
+                            ${valor ? `<p><strong>Valor:</strong> R$ ${valor}</p>` : ''}
+                            <br>
+                            <p>${dataFormatada}</p>
+                            <div class="signature">
+                                <p>________________________________________</p>
+                                <p>${recebedor}</p>
+                            </div>
+                        </div>
+                    </body>
+                    </html>
+                `;
+                // --- FIM: HTML Otimizado para Impressão ---
+
+                // --- INÍCIO: Centralizar a janela de impressão ---
+                const winWidth = 800;
+                const winHeight = 600;
+                const top = (screen.height / 2) - (winHeight / 2);
+                const left = (screen.width / 2) - (winWidth / 2);
+                // Ajuste para subir a janela um pouco (diminuir o valor de 'top')
+                const ajusteTop = 80; // Ajuste a quantidade conforme necessário (em pixels)
+                const features = `width=${winWidth},height=${winHeight},top=${top - ajusteTop},left=${left}`;
+                // --- FIM: Centralizar a janela de impressão ---
+
+                const printWindow = window.open('', '_blank', features);
+                printWindow.document.write(orcamentoHTML);
+                printWindow.document.close();
+                
+                // Foca na janela de impressão
+                printWindow.focus();
+                
+                // Imprime o conteúdo
+                printWindow.print();
+
+                // Adiciona um listener para fechar a janela APÓS a impressão
+                printWindow.addEventListener('afterprint', () => printWindow.close());
+            });
+        });
+        // --- FIM DAS MODIFICAÇÕES ---
+    </script>
+
+    <script>
+        window.chtlConfig = { chatbotId: "8198551521", horizontalSpacing: 20, verticalSpacing: 30 };
+    </script>
+    <script async data-id="8198551521" id="chtl-script" type="text/javascript" src="https://chatling.ai/js/embed.js"></script>
+</body>
+</html>

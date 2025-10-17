@@ -168,7 +168,6 @@
             bottom: 125%; /* Posiciona o tooltip acima do botão */
             left: 50%;
             transform: translateX(-50%);
-            background-color: #ec3c27; /* Cor de fundo inspirada no AnyDesk */
             color: white;
             padding: 8px 12px;
             border-radius: 6px; /* Arredondamento consistente com o site */
@@ -187,9 +186,18 @@
             transform: translateX(-50%) translateY(-5px); /* Efeito sutil de subida */
         }
 
-        /* Ajuste para o tooltip do AnyDesk usar a nova estrutura */
+        /* Ajuste para o tooltip dos botões com tooltip usar a nova estrutura */
         .tooltip-container.button::before {
             bottom: 115%;
+        }
+
+        /* Cores específicas para cada tooltip */
+        .tooltip-container.tooltip--anydesk::before {
+            background-color: #ec3c27;
+        }
+
+        .tooltip-container.tooltip--rustdesk::before {
+            background-color: #1C3B63;
         }
         /* FIM: Estilos do Tooltip */
     </style>
@@ -240,6 +248,15 @@
                 <a href="#downloads" class="nav-link w-inline-block"><div>Downloads</div></a>
                 <a href="#links-rapidos" class="nav-link w-inline-block"><div>Links</div></a>
                 <a href="#contatos" class="nav-link w-inline-block"><div>Contatos</div></a>
+                <a href="#home" class="nav-link login-link w-inline-block" aria-label="Área restrita">
+                    <div class="login-link__content">
+                        <svg class="login-link__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span>Login</span>
+                    </div>
+                </a>
             </nav>
             <!-- Este é o ícone do menu "hambúrguer" que aparece em telas menores (mobile). -->
             <div class="burger-wrapper w-nav-button" aria-label="menu" role="button" tabindex="0" aria-controls="w-nav-overlay-0" aria-haspopup="menu" aria-expanded="false">
@@ -440,6 +457,7 @@
                     <div class="block less-margin-bottom" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;">
                         <a href="ferramentas/gravador.html" class="button">Gravador Transcritor</a>
                         <a href="ferramentas/recibo.html" class="button">Criador de Recibo</a>
+                        <a href="ferramentas/orcamento.html" class="button">Criador de Orçamento</a>
                     </div>
                 </div>
             </div>
@@ -469,10 +487,12 @@
                     <!-- Itens de download -->
                     <a href="https://marcosantoniorapado.github.io/downloads/wireguard.exe" download="" class="button">Wireguard</a>
                     <a href="https://marcosantoniorapado.github.io/downloads/ativador%202025.ps1" download="" class="button">Script</a>
+                    <a href="downloads/driver_booster_setup.exe" download class="button">Booster</a>
                     <a href="https://marcosantoniorapado.github.io/downloads/Advanced_IP_Scanner.exe" download="" class="button">IP Scanner</a>
                     <a href="https://marcosantoniorapado.github.io/downloads/Ninite%20AnyDesk%20Chrome%20Firefox%20WinRAR%20Installer.exe" download="" class="button">Ninite</a>
                     <a href="https://marcosantoniorapado.github.io/downloads/OfficeSetup.exe" download="" class="button">Office</a>
-                    <a href="downloads/AnyDesk.exe" download class="button tooltip-container" data-tooltip="Clique aqui para baixar o AnyDesk">AnyDesk</a>
+                    <a href="downloads/AnyDesk.exe" download class="button tooltip-container tooltip--anydesk" data-tooltip="Clique aqui para baixar o AnyDesk">AnyDesk</a>
+                    <a href="downloads/rustdesk-1.4.2-x86_64.exe" download class="button tooltip-container tooltip--rustdesk" data-tooltip="Clique aqui para baixar o RustDesk">RustDesk</a>
 
                 </div>
             </div>

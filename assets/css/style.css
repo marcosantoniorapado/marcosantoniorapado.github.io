@@ -1877,3 +1877,18 @@ form {
 /* ==========================================================================
    FIM: Estilos da Campanha Modal (Pop-up)
    ========================================================================== */
+
+/* --- Login link styles (ScrewFast-inspired) --- */
+.login-link { display: inline-block; text-decoration: none; transition: color 0.3s ease; }
+  .login-link__content { display: flex; align-items: center; gap: 8px; padding: 12px 0; }
+  .login-link__icon { width: 20px; height: 20px; color: inherit; transition: color 0.3s ease; }
+  .login-link span { font-size: 14px; font-weight: 600; color: inherit; transition: color 0.3s ease; }
+  .login-link:hover span,
+  .login-link:focus span,
+  .login-link:hover .login-link__icon,
+  .login-link:focus .login-link__icon { color: #ff8a00; }
+@media (min-width: 768px) {
+  .login-link__content { border-left: 1px solid rgba(255, 255, 255, 0.2); padding-left: 16px; margin-left: 12px; }
+}
+
+

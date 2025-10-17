@@ -1,46 +1,53 @@
-Listagem de caminhos de pasta para o volume Sistema
-O número de série do volume é 9297-CA05
+ï»¿Listagem de caminhos de pasta para o volume Sistema
+O nÃºmero de sÃ©rie do volume Ã© 9297-CA05
 C:.
-¦   BingSiteAuth.xml
-¦   google43020fda8a1d2c3d.html
-¦   index.html
-¦   mapadosite.txt
-¦   README.md
-¦   robots.txt
-¦   sitemap.xml
-¦   
+|   BingSiteAuth.xml
+|   CNAME
+|   google43020fda8a1d2c3d.html
+|   index.html
+|   mapadosite.txt
+|   mapadosite.txt.old
+|   README.md
+|   robots.txt
+|   sitemap.xml
+|   
 +---assets
-¦   +---campaigns
-¦   ¦       active.json
-¦   ¦       
-¦   +---css
-¦   ¦       style.css
-¦   ¦       
-¦   +---images
-¦   ¦       advogado.webp
-¦   ¦       amiga.webp
-¦   ¦       favicon.png
-¦   ¦       marcosperfil.jpeg
-¦   ¦       rh_estrategica.webp
-¦   ¦       
-¦   +---js
-¦           campaign-loader.js
-¦           campaign-modal.js
-¦           script.js
-¦           
+|   +---campaigns
+|   |       active.json
+|   |       
+|   +---css
+|   |       style.css
+|   |       
+|   +---images
+|   |       advogado.webp
+|   |       amiga.webp
+|   |       favicon.png
+|   |       marcosperfil.jpeg
+|   |       rh_estrategica.webp
+|   |       
+|   \---js
+|           campaign-loader.js
+|           campaign-modal.js
+|           script.js
+|           
 +---downloads
-¦       Advanced_IP_Scanner.exe
-¦       AnyDesk.exe
-¦       ativador 2025.ps1
-¦       Ninite AnyDesk Chrome Firefox WinRAR Installer.exe
-¦       OfficeSetup.exe
-¦       wireguard.exe
-¦       
+|       Advanced_IP_Scanner.exe
+|       AnyDesk.exe
+|       ativador 2025.ps1
+|       Ninite AnyDesk Chrome Firefox WinRAR Installer.exe
+|       OfficeSetup.exe
+|       rustdesk-1.4.2-x86_64.exe
+|       wireguard.exe
+|       
 +---ferramentas
-¦       gravador.html
-¦       recibo.html
-¦       style.css
-¦       
-+---projetos
+|       gravador.html
+|       recibo.html
+|       orcamento.html
+|       style.css
+|       
++---pix
+|       index.html
+|       
+\---projetos
         base-de-conhecimento-ia.md
         

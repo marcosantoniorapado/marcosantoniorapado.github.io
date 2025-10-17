@@ -3,7 +3,7 @@
 Este é o repositório do meu site pessoal publicado com o GitHub Pages. A proposta é oferecer serviços, ferramentas e informações úteis para pessoas e empresas, com foco em praticidade, suporte remoto e conteúdos de qualidade.
 
 ## 🔗 Acesse o site:
-[marcosantoniorapado.github.io](https://marcosantoniorapado.github.io)
+[marcosantoniorapado.github.io](https://marcosantoniorapado.com.br)
 
 ## 🔧 Estrutura do site
 
