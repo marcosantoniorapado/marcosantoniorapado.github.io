@@ -1,6 +1,6 @@
 <#
     Versão: 5.3 - Criado por Marcos
-    Data: 24/03/2026
+    Data: 25/03/2026
 
     Novidades da Versão 5.3:
     - NOVO: Função de limpeza de arquivos temporários (%TEMP%, C:\Windows\Temp, cache Windows Update).
