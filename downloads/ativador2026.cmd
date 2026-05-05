@@ -4,7 +4,7 @@ color 0F
 
 :: 1. AUTO-ELEVACAO (Mantendo o terminal ativo para diagnosticos)
 fltmc >nul 2>&1 || (
-    echo [INFO] Elevando para Administrador...
+    echo Elevando para Administrador...
     powershell -Command "Start-Process cmd -ArgumentList '/c', '""%~f0""' -Verb RunAs"
     exit /b
 )
