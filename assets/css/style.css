@@ -230,7 +230,7 @@
         radial-gradient(circle at top, rgba(240,138,60,.22), transparent 38%),
         url("../img/hero.png?v=20260704-2115"),
         linear-gradient(135deg, #050608 0%, #0f1114 48%, #1b1c1f 100%);
-      background-size:cover, auto, contain, cover;
+      background-size:cover, auto, 100% auto, cover;
       background-position:center, top center, center, center;
       background-repeat:no-repeat;
       width:100%;
