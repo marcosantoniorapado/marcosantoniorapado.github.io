@@ -1,30 +1,30 @@
-# 🌐 Site Pessoal - Marcos Antonio Rapado
+# Site Pessoal - Marcos Antonio Rapado
 
-Este é o repositório do meu site pessoal publicado com o GitHub Pages. A proposta é oferecer serviços, ferramentas e informações úteis para pessoas e empresas, com foco em praticidade, suporte remoto e conteúdos de qualidade.
+Site publicado via GitHub Pages com foco em servicos de tecnologia, suporte remoto, projetos, links uteis e downloads de apoio.
 
-## 🔗 Acesse o site:
-[marcosantoniorapado.github.io](https://marcosantoniorapado.com.br)
+## Acesso
 
-## 🔧 Estrutura do site
+- Dominio principal: [marcosantoniorapado.com.br](https://marcosantoniorapado.com.br)
 
-- `index.html` – Página inicial do site.
-- `assets/` – Contém CSS, JavaScript e imagens utilizadas no site.
-- `downloads/` – Programas úteis e instaladores para download.
-- `ferramentas/` – Ferramentas online como gravador e gerador de recibo.
-- `projetos/` – Projetos e conteúdos informativos em Markdown.
-- `sitemap.xml` – Arquivo usado para indexação em buscadores.
-- `robots.txt` – Arquivo que define regras de rastreamento.
-- `google*.html` – Verificação de propriedade no Google Search Console.
+## Estrutura principal
 
-## 🌍 Funcionalidades
+- `index.html`: homepage atual.
+- `assets/`: estilos, scripts e imagens da interface.
+- `downloads/`: instaladores e utilitarios de suporte.
+- `ferramentas/`: paginas auxiliares mantidas no projeto.
+- `projetos/`: materiais e referencias complementares.
+- `robots.txt`, `sitemap.xml`, `CNAME`: arquivos de publicacao, SEO e dominio.
+- `google*.html` e `BingSiteAuth.xml`: validacoes de buscadores.
 
-- Acesso a utilitários online e arquivos para download
-- Apoio com tarefas cotidianas, estudos e organização
-- Dicas de carreira, finanças e saúde
-- Suporte remoto para usuários em todo o Brasil
+## Direcao desta fase
 
-## 📬 Contato
+- nova homepage como entrada principal do site;
+- downloads e estrutura util antiga preservados;
+- links externos revisados para manter continuidade pratica;
+- publicacao simples, estatica e compativel com GitHub Pages.
+
+## Contato
 
 - WhatsApp: [18 99773-8569](https://wa.me/5518997738569)
-- E-mail: contato@marcosantoniorapado.com.br
+- E-mail: `contato@marcosantoniorapado.com.br`
 - LinkedIn: [Marcos Rapado](https://www.linkedin.com/in/marcos-rapado)
