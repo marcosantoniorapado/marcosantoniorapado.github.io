@@ -99,13 +99,13 @@
     }
 
         .logo-mark {
-      background:rgba(255,255,255,.92);
-      padding:8px;
-      border-radius:18px;
-      box-shadow:0 10px 22px rgba(0,0,0,.22);
-      border:1px solid rgba(255,255,255,.18);
-      overflow:hidden;
-    }
+            background:transparent;
+            padding:0;
+            border-radius:14px;
+            box-shadow:none;
+            border:0;
+            overflow:hidden;
+        }
 
         .logo-mark img {
       width:100%;
@@ -226,7 +226,7 @@
       position:relative;
       overflow:hidden;
       background:
-          linear-gradient(90deg, rgba(5,6,8,.38), rgba(8,10,12,.22), rgba(15,17,20,.16)),
+          linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.44),rgba(0,0,0,.26)),
           radial-gradient(circle at top, rgba(240,138,60,.22), transparent 38%),
           url("../img/hero.png?v=20260704-2115"),
           linear-gradient(135deg, #050608 0%, #0f1114 48%, #1b1c1f 100%);
@@ -264,7 +264,7 @@
       position:absolute;
       inset:auto 0 0 0;
       height:110px;
-      background:linear-gradient(180deg,transparent,rgba(24,24,24,.92));
+      background:linear-gradient(180deg,transparent,rgba(5,6,8,.72));
       pointer-events:none;
       z-index:1;
     }
