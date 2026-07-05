@@ -1149,15 +1149,18 @@
       display:flex;
     }
 
-        .contact-mini-photo {
-      width:92px;
-      height:92px;
-      border-radius:50%;
-      object-fit:cover;
-      border:3px solid rgba(255,255,255,.95);
-      box-shadow:0 10px 24px rgba(0,0,0,.14);
-      flex:0 0 92px;
-      display:block;
+    .contact-mini-photo {
+        width:104px;
+        height:104px;
+        border-radius:50%;
+        object-fit:cover;
+        object-position:center;
+        border:3px solid rgba(255,255,255,.95);
+        box-shadow:0 10px 24px rgba(0,0,0,.14);
+        flex:0 0 104px;
+        display:block;
+        image-rendering:auto;
+        filter:none;
     }
 
         .contact-box-title-wrap h3 {
