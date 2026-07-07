@@ -1765,7 +1765,16 @@
 /* Ajuste do menu no celular */
 @media (max-width:759px) {
   .footer-bar {
-    padding:20px 18px calc(108px + env(safe-area-inset-bottom));
+    padding:20px 18px calc(148px + env(safe-area-inset-bottom));
+  }
+
+  .footer-security {
+    max-width:calc(100% - 20px);
+    line-height:1.5;
+  }
+
+  .float-btn {
+    bottom:28px;
   }
 
   .nav {
