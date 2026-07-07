@@ -1764,6 +1764,10 @@
 
 /* Ajuste do menu no celular */
 @media (max-width:759px) {
+  .footer-bar {
+    padding:20px 18px calc(108px + env(safe-area-inset-bottom));
+  }
+
   .nav {
     flex-wrap:wrap;
     align-items:center;
