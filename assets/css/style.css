@@ -1550,29 +1550,29 @@
       }
 
       .whatsapp::before {
-        left:50%;
-        top:auto;
-        bottom:calc(100% + 12px);
-        transform:translateX(-50%) translateY(6px);
+        left:calc(100% + 12px);
+        top:50%;
+        bottom:auto;
+        transform:translateY(-50%) translateX(-6px);
         white-space:normal;
-        width:min(250px, calc(100vw - 40px));
-        text-align:center;
+        width:min(220px, calc(100vw - 110px));
+        text-align:left;
       }
 
       .whatsapp::after {
-        left:50%;
-        top:auto;
-        bottom:calc(100% + 5px);
-        transform:translateX(-50%) translateY(6px);
-        border-top:7px solid #25D366;
-        border-bottom:none;
-        border-right:7px solid transparent;
-        border-left:7px solid transparent;
+        left:calc(100% + 5px);
+        top:50%;
+        bottom:auto;
+        transform:translateY(-50%) translateX(-6px);
+        border-top:7px solid transparent;
+        border-bottom:7px solid transparent;
+        border-right:7px solid #25D366;
+        border-left:none;
       }
 
       .whatsapp:hover::before,
       .whatsapp:hover::after {
-        transform:translateX(-50%) translateY(0);
+        transform:translateY(-50%) translateX(0);
       }
     }
 
