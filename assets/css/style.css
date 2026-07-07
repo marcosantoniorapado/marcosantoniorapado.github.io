@@ -808,6 +808,7 @@
 
     .footer-copy {
       display:block;
+      text-align:center;
     }
 
     .footer-security {
@@ -1710,17 +1711,17 @@
       }
 
       .footer-bar {
-        flex-direction:row;
-        justify-content:space-between;
+        flex-direction:column;
+        justify-content:center;
         align-items:center;
-        text-align:left;
-        gap:24px;
-        padding:28px 104px 34px;
+        text-align:center;
+        gap:10px;
+        padding:28px 28px 34px;
       }
 
       .footer-security {
-        justify-content:flex-end;
-        text-align:right;
+        justify-content:center;
+        text-align:center;
       }
     }
 
