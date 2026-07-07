@@ -795,7 +795,7 @@
     .footer-bar {
       background:#1f1f1f;
       color:#e7e2d8;
-      padding:20px 18px;
+      padding:24px 18px;
       text-align:center;
       font-size:.92rem;
       overflow-wrap:break-word;
@@ -832,7 +832,7 @@
 
         .float-btn {
       position:fixed;
-      bottom:18px;
+      bottom:24px;
       z-index:70;
       width:56px;
       height:56px;
@@ -1714,8 +1714,8 @@
         justify-content:space-between;
         align-items:center;
         text-align:left;
-        gap:20px;
-        padding-right:96px;
+        gap:24px;
+        padding:28px 104px 34px;
       }
 
       .footer-security {
