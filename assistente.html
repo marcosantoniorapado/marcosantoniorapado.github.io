@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assistente Virtual — Marcos Antonio Rapado</title>
+  <meta name="description" content="Converse com o assistente virtual de Marcos Antonio Rapado.">
+  <meta name="robots" content="index, follow">
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: #0f1720;
+      font-family: Arial, sans-serif;
+    }
+
+    .fallback {
+      position: fixed;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: #ffffff;
+      text-align: center;
+      padding: 24px;
+      z-index: 0;
+    }
+
+    .fallback small {
+      display: block;
+      margin-top: 8px;
+      color: #aebbc7;
+    }
+  </style>
+</head>
+<body>
+  <div class="fallback">
+    <div>
+      Carregando o assistente virtual...
+      <small>Se não abrir, atualize a página.</small>
+    </div>
+  </div>
+
+  <script>
+    window.chtlConfig = {
+      chatbotId: "8198551521",
+      displayType: "fullscreen",
+      chatIconVisible: false,
+      language: "pt-br"
+    };
+  </script>
+
+  <script
+    async
+    data-id="8198551521"
+    id="chtl-script"
+    type="text/javascript"
+    src="https://chatling.ai/js/embed.js">
+  </script>
+</body>
+</html>
