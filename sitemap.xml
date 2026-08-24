@@ -9,25 +9,4 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Ferramentas -->
-  <url>
-    <loc>https://marcosantoniorapado.com.br/ferramentas/gravador.html</loc>
-    <lastmod>2025-09-22</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://marcosantoniorapado.com.br/ferramentas/recibo.html</loc>
-    <lastmod>2025-09-22</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://marcosantoniorapado.com.br/ferramentas/orcamento.html</loc>
-    <lastmod>2025-10-16</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
 </urlset>
