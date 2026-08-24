@@ -51,8 +51,6 @@ assets/
   js/
   img/
 downloads/
-ferramentas/
-projetos/
 robots.txt
 sitemap.xml
 CNAME
