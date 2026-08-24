@@ -1,0 +1,26 @@
+# Segredos e configuração local
+.env
+.env.*
+!.env.example
+.secrets/
+.ssh/
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Registros e resíduos locais
+*.log
+*.tmp
+*.bak
+*~
+backup/
+backups/
+archive/
+archives/
+
+# Sistema e editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
